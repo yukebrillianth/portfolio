@@ -7,7 +7,7 @@ const Hero = () => {
         <section className="text-gray-600 body-font" id="Hero">
             <div className="container mx-auto flex px-6 lg:px-10 md:px-12 py-5 md:py-24 md:flex-row flex-col-reverse items-center">
                 <div className="lg:flex-grow md:w-1/2 lg:pr-24 md:pr-16 flex flex-col sm:mt-0 mt-8 md:items-start md:text-left mb-16 md:mb-0 items-center text-center">
-                    <h1 className="md:leading-tight font-bold title-font sm:text-5xl text-4xl text-gray-900">Hi, I'am<span className="text-blue-600"> Yuke
+                    <h1 className="md:leading-tight font-bold title-font sm:text-5xl text-4xl text-gray-900">Hi, I'm<span className="text-blue-600"> Yuke
                         <br className="hidden lg:inline-block" /> Brilliant Hestiavin</span>
                     </h1>
                     <p className="text-gray-800 font-normal text-lg leading-loose my-10">Halo! Saya Seorang Full Stack Developer
