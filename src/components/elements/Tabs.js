@@ -7,6 +7,9 @@ import { Container, ContentWithPaddingXl } from "../misc/Layouts";
 import { SectionHeading } from "../misc/Headings.js";
 import { PrimaryButton as PrimaryButtonBase } from "../misc/Buttons.js";
 import { ReactComponent as StarIcon } from "../../img/star-icon.svg";
+import electrue from "../../img/portfolio/Electrue.png";
+import upvote from "../../img/portfolio/UpVote.png";
+import scrape1 from "../../img/portfolio/Scrapev1.jpg";
 
 const HeaderRow = tw.div`flex justify-between items-center flex-col xl:flex-row`;
 const Header = tw(SectionHeading)``;
@@ -54,31 +57,28 @@ const Tabs = ({
     tabs = {
         All: [
             {
-                imageSrc:
-                    "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=80",
-                title: "Veg Mixer",
-                content: "Tomato Salad & Carrot",
-                price: "$5.99",
+                imageSrc: electrue,
+                title: "Electrue SaaS",
+                content: "SaaS untuk sync produk marketplace. W/ React.js & Lumen microservices",
+                price: "Rp. 50.000/Month",
                 rating: "5.0",
                 reviews: "87",
-                url: "#"
+                url: "https://electrue.demo.morph.my.id/"
             },
             {
-                imageSrc:
-                    "https://images.unsplash.com/photo-1432139555190-58524dae6a55?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=80",
-                title: "Macaroni",
-                content: "Cheese Pizza",
-                price: "$2.99",
-                rating: "4.8",
-                reviews: "32",
-                url: "#"
+                imageSrc: upvote,
+                title: "UpVote",
+                content: "Aplikasi pemilihan umum, berbasis web dan mobile.",
+                price: "Free",
+                rating: "4.5",
+                reviews: "34",
+                url: "https://docs.upvote.morph.my.id/"
             },
             {
-                imageSrc:
-                    "https://images.unsplash.com/photo-1476224203421-9ac39bcb3327??ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=80",
-                title: "Nelli",
-                content: "Hamburger & Fries",
-                price: "$7.99",
+                imageSrc: scrape1,
+                title: "ScrapeSync V1",
+                content: "Aplikasi Scraping dan sync produk marketplace.",
+                price: "Private",
                 rating: "4.9",
                 reviews: "89",
                 url: "#"
@@ -134,7 +134,85 @@ const Tabs = ({
                 url: "#"
             }
         ],
-        Website: getRandomCards(),
+        Website: [
+            {
+                imageSrc: electrue,
+                title: "Electrue SaaS",
+                content: "SaaS untuk sync produk marketplace. W/ React.js & Lumen microservices",
+                price: "Rp. 50.000/Month",
+                rating: "5.0",
+                reviews: "87",
+                url: "https://electrue.demo.morph.my.id/"
+            },
+            {
+                imageSrc: upvote,
+                title: "UpVote",
+                content: "Aplikasi pemilihan umum, berbasis web dan mobile.",
+                price: "Free",
+                rating: "4.5",
+                reviews: "34",
+                url: "https://docs.upvote.morph.my.id/"
+            },
+            {
+                imageSrc: scrape1,
+                title: "ScrapeSync V1",
+                content: "Aplikasi Scraping dan sync produk marketplace.",
+                price: "Private",
+                rating: "4.9",
+                reviews: "89",
+                url: "#"
+            },
+            {
+                imageSrc:
+                    "https://images.unsplash.com/photo-1534422298391-e4f8c172dddb?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=80",
+                title: "Guacamole Mex",
+                content: "Mexican Chilli",
+                price: "$3.99",
+                rating: "4.2",
+                reviews: "95",
+                url: "#"
+            },
+            {
+                imageSrc:
+                    "https://images.unsplash.com/photo-1550461716-dbf266b2a8a7?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=80",
+                title: "Chillie Cake",
+                content: "Deepfried Chicken",
+                price: "$2.99",
+                rating: "5.0",
+                reviews: "61",
+                url: "#"
+            },
+            {
+                imageSrc:
+                    "https://images.unsplash.com/photo-1476224203421-9ac39bcb3327??ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=80",
+                title: "Nelli",
+                content: "Hamburger & Fries",
+                price: "$7.99",
+                rating: "4.9",
+                reviews: "89",
+                url: "#"
+            },
+            {
+                imageSrc:
+                    "https://images.unsplash.com/photo-1455619452474-d2be8b1e70cd?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=80",
+                title: "Jalapeno Poppers",
+                content: "Crispy Soyabeans",
+                price: "$8.99",
+                rating: "4.6",
+                reviews: "12",
+                url: "#"
+            },
+            {
+                imageSrc:
+                    "https://images.unsplash.com/photo-1473093226795-af9932fe5856?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=80",
+                title: "Cajun Chicken",
+                content: "Roasted Chicken & Egg",
+                price: "$7.99",
+                rating: "4.2",
+                reviews: "19",
+                url: "#"
+            }
+        ],
         Mobile: getRandomCards(),
         UIUX: getRandomCards()
     }
@@ -184,13 +262,13 @@ const Tabs = ({
                             <CardContainer key={index}>
                                 <Card className="group" href={card.url} initial="rest" whileHover="hover" animate="rest">
                                     <CardImageContainer imageSrc={card.imageSrc}>
-                                        <CardRatingContainer>
+                                        {/* <CardRatingContainer>
                                             <CardRating>
                                                 <StarIcon />
                                                 {card.rating}
                                             </CardRating>
                                             <CardReview>({card.reviews})</CardReview>
-                                        </CardRatingContainer>
+                                        </CardRatingContainer> */}
                                         <CardHoverOverlay
                                             variants={{
                                                 hover: {
