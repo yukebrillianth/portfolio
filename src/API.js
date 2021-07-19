@@ -1,0 +1,1 @@
+export const API_ENDPOINT_V1 = 'https://electrue-v1-laravel.test/api/v1/';

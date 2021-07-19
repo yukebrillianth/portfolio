@@ -1,0 +1,1 @@
+export const OSS_PAGES_ASSETS = 'https://electrue.oss-ap-southeast-5.aliyuncs.com/pages/blibli-logo.png';
