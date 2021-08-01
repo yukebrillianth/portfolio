@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import tw from 'twin.macro';
 import waIcon from '../../../img/wa-icon.svg';
 import { About, Contact, Footer, Hero, Navbar, Tabs } from '../../elements'
 
@@ -14,7 +13,7 @@ const CtaContainer = styled.a`
     @media (max-width: 768px) { 
         right:20px;
         bottom:20px;
-     }
+    }
 `
 const CtaImage = styled.img``
 
