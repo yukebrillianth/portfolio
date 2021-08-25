@@ -96,6 +96,7 @@ const Contact = () => {
                             <button
                                 onClick={sendData}
                                 type="submit"
+                                disabled={loading ? true : false}
                                 className="flex mx-auto text-white bg-gray-900 border-0 py-2 px-8 focus:outline-none hover:bg-gray-600 rounded text-lg"
                             >
                                 {loading ? (
