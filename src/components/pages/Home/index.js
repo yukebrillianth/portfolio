@@ -26,8 +26,8 @@ const Home = () => {
             <Tabs color="blue" />
             <Contact />
             <Footer />
-            <CtaContainer href="https://wa.me/send?phone=6285755773985&text=Halo!" target="_blank">
-                <CtaImage src={waIcon} />
+            <CtaContainer href="https://wa.me/send?phone=6285755773985&text=Halo!" rel="noreferrer" target="_blank">
+                <CtaImage src={waIcon} alt="whatsapp-icon" />
             </CtaContainer>
         </section>
     );
