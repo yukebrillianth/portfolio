@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { Transition } from "@headlessui/react";
 import { Link } from 'react-scroll';
-import { Link as RouteLink } from 'react-router-dom'
 import Logo from '../../img/logo-transparant.png'
 
 function Navbar() {
@@ -68,10 +67,12 @@ function Navbar() {
                                 >Portfolio</Link>
                             </li>
                             <li>
-                                <RouteLink
-                                    to="/Blog"
+                                <a
+                                    href="http://haloteknologi.com/"
+                                    target="_blank"
+                                    rel="noreferrer"
                                     className="md:p-4 py-3 px-0 block hover:text-blue-600"
-                                >Blog</RouteLink>
+                                >Blog</a>
                             </li>
                             <li>
                                 <Link
@@ -118,10 +119,12 @@ function Navbar() {
                             >Portfolio</Link>
                         </li>
                         <li>
-                            <RouteLink
-                                to="/Blog"
+                            <a
+                                href="http://haloteknologi.com/"
+                                target="_blank"
+                                rel="noreferrer"
                                 className="md:p-4 py-3 px-0 block hover:text-blue-600"
-                            >Blog</RouteLink>
+                            >Blog</a>
                         </li>
                         <li>
                             <Link
