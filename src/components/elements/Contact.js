@@ -1,3 +1,4 @@
+import axios from 'axios';
 import React, { useState } from 'react';
 
 const Contact = () => {
@@ -17,25 +18,26 @@ const Contact = () => {
         if (name !== undefined && name !== '' && email !== undefined && email !== '' && message !== undefined && message !== '') {
             try {
                 setLoading(true);
-                await fetch(
-                    "https://v1.nocodeapi.com/yukebrillianth/google_sheets/cMfsoImazTeyjYlr?tabId=Feedback",
-                    {
-                        method: "post",
-                        body: JSON.stringify([[name, email, message]]),
-                        headers: {
-                            "Content-Type": "application/json"
-                        }
-                    }
-                );
-                setLoading(false);
-                setMessage({
-                    isError: false,
-                    text: "Sukses mengirim pesan!"
-                });
-                setFormData({})
-                document.querySelector('#name').value = '';
-                document.querySelector('#email').value = '';
-                document.querySelector('#message').value = '';
+                axios.post('https://formspree.io/f/mnqllnzo', formData)
+                    .then(
+                        res => {
+                            setLoading(false);
+                            setMessage({
+                                isError: false,
+                                text: "Sukses mengirim pesan!"
+                            });
+                            setFormData({})
+                            document.querySelector('#name').value = '';
+                            document.querySelector('#email').value = '';
+                            document.querySelector('#message').value = '';
+                        },
+                        err => {
+                            setLoading(false);
+                            setMessage({
+                                isError: true,
+                                text: 'Backend error'
+                            });
+                        })
             } catch (error) {
                 setLoading(false);
                 console.error("Error:", error);
