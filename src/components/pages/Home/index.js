@@ -1,11 +1,11 @@
 import styled from 'styled-components';
-import waIcon from '../../../img/wa-icon.svg';
+import TeleIcon from '../../../img/telegram-icon.svg';
 import { About, Contact, Footer, Hero, Navbar, Tabs } from '../../elements'
 
 const CtaContainer = styled.a`
     position:fixed;
-    width:60px;
-    height:60px;
+    width:50px;
+    height:50px;
     bottom:40px;
     right:40px;
     z-index:100;
@@ -26,8 +26,8 @@ const Home = () => {
             <Tabs color="blue" />
             <Contact />
             <Footer />
-            <CtaContainer href="https://wa.me/send?phone=6285755773985&text=Halo!" rel="noreferrer" target="_blank">
-                <CtaImage src={waIcon} alt="whatsapp-icon" />
+            <CtaContainer href="https://t.me/Yukebrillianth" rel="noreferrer" target="_blank">
+                <CtaImage src={TeleIcon} alt="telegram-icon" />
             </CtaContainer>
         </section>
     );
