@@ -42,9 +42,9 @@ const About = () => {
             </div>
             <section className="text-gray-600 body-font">
                 <h2 className="title-font sm:text-4xl text-4xl font-semibold text-gray-900 text-center">My Education</h2>
-                <div className="container px-5 py-24 mx-auto flex flex-wrap">
+                <div className="container px-5 pt-12 mx-auto flex flex-wrap">
                     <div className="flex flex-wrap w-full flex-col justify-center items-center">
-                        <div className="lg:w-2/5 md:w-1/2 md:pr-10 md:py-6">
+                        <div className="md:pr-10 md:py-6">
                             <div className="flex relative pb-12">
                                 <div className="h-full w-10 absolute inset-0 flex items-center justify-center">
                                     <div className="h-full w-1 bg-gray-200 pointer-events-none"></div>
