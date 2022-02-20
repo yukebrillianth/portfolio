@@ -1,56 +1,43 @@
-import Head from "next/head";
-import tw, { styled } from "twin.macro";
+import tw from "twin.macro";
+import { AboutFunFact, HomePageHero, Navbar } from "../components";
+
+const styles = {
+  darkSection: () => [
+    tw`
+      bg-dark
+      background-size[300%]
+      md:background-size[cover]
+    `,
+    `
+      background-image: url(https://www.koyeb.com/static/images/backgrounds/grid-dark.svg);
+      background-position: 100%;
+    `
+  ],
+  lightSection: () => [
+    tw`
+      bg-white
+    `,
+    `
+      background-image: url(https://www.koyeb.com/static/images/backgrounds/grid-light.svg);
+      background-position: 100%;
+      background-size: cover;
+    `
+  ]
+}
 
 export default function Home() {
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen py-2">
-      <Head>
-        <title>Create Next App</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-
-      <main className="flex flex-col items-center justify-center w-full flex-1 px-20 text-center">
-        <StyledButton>In Style</StyledButton>
-        <br />
-        <TailwindButton>In Tailwind Style</TailwindButton>
-        <br />
-        <ConditionalButton isRed={true}>Conditional Tailwind</ConditionalButton>
-      </main>
-    </div>
+    <>
+      <section css={styles.darkSection}>
+        <Navbar />
+        <HomePageHero />
+      </section>
+      <section css={styles.lightSection}>
+        <AboutFunFact />
+      </section>
+      <section css={styles.darkSection}>
+        <AboutFunFact />
+      </section>
+    </>
   );
 }
-
-// still works despite importing from twin.macro
-const StyledButton = styled.button`
-  background: red;
-  color: white;
-  font-size: 1em;
-  text-align: center;
-  padding: 0.25em 1em;
-  border: 2px solid black;
-`;
-
-const TailwindButton = tw.button`
-  bg-red-500
-  hover:bg-red-700
-  text-white
-  font-bold
-  py-2
-  px-4
-  border
-  border-black
-  rounded
-`;
-
-const ConditionalButton = styled.button(({ isRed }) => [
-  isRed ? tw`bg-red-500 hover:bg-red-700` : tw`bg-blue-500 hover:bg-blue-500`,
-  tw`
-    text-white
-    font-bold
-    py-2
-    px-4
-    border
-    border-black
-    rounded
-  `,
-]);

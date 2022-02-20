@@ -6,7 +6,15 @@ module.exports = {
   ],
   darkMode: false, // or 'media' or 'class'
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        'dark': '#121212',
+        'primary': '#FF9800',
+      },
+      fontFamily: {
+        Gilroy: ["Gilroy", "sans-serif"]
+      }
+    },
   },
   variants: {
     extend: {},
