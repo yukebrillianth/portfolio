@@ -5,7 +5,6 @@ const Wrapper = styled.section(() => [
         flex
         flex-col
         items-center
-        px-[20px]
         md:px-0
     `
 ]);
@@ -20,7 +19,7 @@ const Title = styled.h1(() => [
         md:line-height[72px]
         md:text-center
         text-white
-        margin-top[50px]
+        p-[28px]
         md:margin-top[115px]
         z-50
     `
