@@ -13,10 +13,10 @@ const Title = styled.h1(() => [
     tw`
         font-semibold
         font-size[54px]
-        line-height[54px]
+        line-height[72px]
         md:font-bold
         md:font-size[72px]
-        md:line-height[72px]
+        // md:line-height[72px]
         md:text-center
         text-white
         p-[28px]
