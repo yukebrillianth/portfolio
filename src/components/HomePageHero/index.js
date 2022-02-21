@@ -76,21 +76,6 @@ const HeroIllustration = styled.div(() => [
     `
 ]);
 
-const styles = {
-    heroSVG: () => [
-        tw`
-            hidden
-            md:block
-        `
-    ],
-    heroSVGMobile: () => [
-        tw`
-            block
-            md:hidden
-        `
-    ]
-}
-
 export default function Hero() {
     return (
         <Wrapper id="Hero">
@@ -100,8 +85,8 @@ export default function Hero() {
                 app developer.
             </Title>
             <HeroIllustration>
-                <img css={styles.heroSVG} src="/assets/hero.svg" alt="hero" />
-                {/* <img css={styles.heroSVGMobile} src="/assets/hero-mobile.svg" alt="hero" /> */}
+                <img tw="hidden md:block" src="/assets/hero.svg" alt="hero" />
+                <img tw="block md:hidden" src="/assets/hero-mobile.svg" alt="hero" />
             </HeroIllustration>
             <ShadowEffect />
         </Wrapper>

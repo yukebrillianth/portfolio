@@ -120,7 +120,7 @@ export default function Navbar() {
         <Wrapper>
             <Container>
                 <LogoWrapper href="/">
-                    <Image src="/assets/logo.svg" width={90} height={48} />
+                    <Image src="/assets/logo.svg" alt="cv Portofolio yuke brilliant" width={90} height={48} />
                 </LogoWrapper>
                 <MainMenu active={menuOpen}>
                     <MainMenuList>
