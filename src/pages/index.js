@@ -1,6 +1,6 @@
 import tw from "twin.macro";
 import { AboutFunFact, HomePageHero, Navbar } from "../components";
-import { NextSeo, SocialProfileJsonLd } from "next-seo";
+import { NextSeo, SiteLinksSearchBoxJsonLd, SocialProfileJsonLd } from "next-seo";
 import Head from "next/head";
 
 const styles = {
@@ -60,7 +60,6 @@ export default function Home() {
             },
           ],
         }}
-      />
       />
       <SocialProfileJsonLd
         type="Person"
