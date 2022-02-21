@@ -54,10 +54,14 @@ const MainMenuList = styled.ul(() => [
     tw`
         flex 
         flex-col
-        mt-4
+        gap-2.5
+        mb-2.5
+        md:gap-0
+        mt-[28px]
         md:flex-row
         md:space-x-8
         md:mt-0
+        md:mb-0
         md:text-sm
         font-semibold
     `
