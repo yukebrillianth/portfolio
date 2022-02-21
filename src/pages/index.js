@@ -1,6 +1,7 @@
 import tw from "twin.macro";
 import { AboutFunFact, HomePageHero, Navbar } from "../components";
 import { NextSeo } from "next-seo";
+import Head from "next/head";
 
 const styles = {
   darkSection: () => [
@@ -29,15 +30,21 @@ const styles = {
 export default function Home() {
   return (
     <>
+      <Head>
+        <meta name="keywords" content="yukebrillianth, cv yuke brilliant, portfolio yuke brilliant, profil yuke brilliant" />
+      </Head>
       <NextSeo
         title="Yuke Brilliant - Personal Portfolio and Tech Blog"
         description="Portfolio Yuke Brilliant Hestiavin, I am a web developer and android app developer from Surabaya, Indonesia (Front End and Back End)"
         canonical="https://www.yukebrillianth.my.id"
         noindex={false}
         nofollow={false}
-        openGraph={
-          local
-        }
+        openGraph={{
+          title: 'Yuke Brilliant - Personal Portfolio and Tech Blog',
+          description: 'Portfolio Yuke Brilliant Hestiavin, I am a web developer and android app developer from Surabaya, Indonesia (Front End and Back End)',
+          url: 'https://yukebrillianth.my.id',
+          type: 'Profile'
+        }}
       />
       <section css={styles.darkSection}>
         <Navbar />
