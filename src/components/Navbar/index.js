@@ -13,7 +13,7 @@ const Wrapper = styled.nav(() => [
         py-[28px]
         md:py-[50px]
         px-[28px]
-        md:px-0
+        md:px-[28px]
         background-size[300%]
         md:background-size[cover]
     `
