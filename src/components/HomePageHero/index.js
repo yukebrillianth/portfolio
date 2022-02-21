@@ -80,7 +80,7 @@ export default function Hero() {
         <Wrapper id="Hero">
             <Title>
                 Hi, I'm <TitleGradient>Yuke Brilliant Hestiavin.</TitleGradient> <br />
-                I'm a web and android <br />
+                I'm a web and android <br tw="hidden md:block" />
                 app developer.
             </Title>
             <HeroIllustration>
