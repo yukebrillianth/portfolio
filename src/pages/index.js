@@ -1,6 +1,6 @@
 import tw from "twin.macro";
 import { AboutFunFact, HomePageHero, Navbar } from "../components";
-import { NextSeo } from "next-seo";
+import { NextSeo, SocialProfileJsonLd } from "next-seo";
 import Head from "next/head";
 
 const styles = {
@@ -43,8 +43,45 @@ export default function Home() {
           title: 'Yuke Brilliant - Personal Portfolio and Tech Blog',
           description: 'Portfolio Yuke Brilliant Hestiavin, I am a web developer and android app developer from Surabaya, Indonesia (Front End and Back End)',
           url: 'https://yukebrillianth.my.id',
-          type: 'Profile'
+          type: 'profile',
+          locale: 'id_ID',
+          profile: {
+            firstName: 'Yuke Brilliant',
+            lastName: 'Hestiavin',
+            username: 'yukebrillianth',
+            gender: 'male',
+          },
+          images: [
+            {
+              url: 'https://secure.gravatar.com/avatar/929dbf043c45dcc538dbd2c20823a87b?s=1080',
+              width: 1080,
+              height: 1080,
+              alt: 'Profile Photo',
+            },
+          ],
         }}
+      />
+      />
+      <SocialProfileJsonLd
+        type="Person"
+        name="Yuke Brilliant Hestiavin"
+        url="https://yukebrillianth.my.id"
+        sameAs={[
+          'https://www.facebook.com/yuke.brilliant.1/',
+          'https://instagram.com/yukebrillianth',
+          'https://www.linkedin.com/in/yukebrillianth',
+          'https://twitter.com/yukebrillianth',
+          'https://github.com/yukebrillianth',
+        ]}
+      />
+      <SiteLinksSearchBoxJsonLd
+        url="https://yukebrillianth.my.id"
+        potentialActions={[
+          {
+            target: 'https://yukebrillianth.my.id/portfolio/search?q',
+            queryInput: 'search_term_string',
+          },
+        ]}
       />
       <section css={styles.darkSection}>
         <Navbar />
