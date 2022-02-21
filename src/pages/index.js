@@ -11,7 +11,7 @@ const styles = {
       md:background-size[cover]
     `,
     `
-      background-image: url(https://www.koyeb.com/static/images/backgrounds/grid-dark.svg);
+      background-image: url(/assets/backgrounds/grid-dark.svg);
       background-position: 100%;
     `
   ],
@@ -20,7 +20,7 @@ const styles = {
       bg-white
     `,
     `
-      background-image: url(https://www.koyeb.com/static/images/backgrounds/grid-light.svg);
+      background-image: url(/assets/backgrounds/grid-light.svg);
       background-position: 100%;
       background-size: cover;
     `

@@ -5,7 +5,7 @@ import tw, { styled } from "twin.macro"
 
 const Wrapper = styled.nav(() => [
     `
-      background-image: url(https://www.koyeb.com/static/images/backgrounds/grid-dark.svg);
+      background-image: url(/assets/backgrounds/grid-dark.svg);
       background-position: 100%;
     `,
     tw`
