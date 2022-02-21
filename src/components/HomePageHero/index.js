@@ -18,7 +18,7 @@ const Title = styled.h1(() => [
         md:font-bold
         md:font-size[72px]
         md:line-height[72px]
-        text-center
+        md:text-center
         text-white
         margin-top[50px]
         md:margin-top[115px]
