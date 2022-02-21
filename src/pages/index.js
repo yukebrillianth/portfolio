@@ -62,6 +62,7 @@ export default function Home() {
         }}
       />
       <SocialProfileJsonLd
+        keyOverride="profile"
         type="Person"
         name="Yuke Brilliant Hestiavin"
         url="https://yukebrillianth.my.id"
