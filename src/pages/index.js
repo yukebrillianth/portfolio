@@ -1,5 +1,6 @@
 import tw from "twin.macro";
 import { AboutFunFact, HomePageHero, Navbar } from "../components";
+import { NextSeo } from "next-seo";
 
 const styles = {
   darkSection: () => [
@@ -28,6 +29,16 @@ const styles = {
 export default function Home() {
   return (
     <>
+      <NextSeo
+        title="Yuke Brilliant - Personal Portfolio and Tech Blog"
+        description="Portfolio Yuke Brilliant Hestiavin, I am a web developer and android app developer from Surabaya, Indonesia (Front End and Back End)"
+        canonical="https://www.yukebrillianth.my.id"
+        noindex={false}
+        nofollow={false}
+        openGraph={
+          local
+        }
+      />
       <section css={styles.darkSection}>
         <Navbar />
         <HomePageHero />
