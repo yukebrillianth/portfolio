@@ -1,4 +1,4 @@
-import tw from "twin.macro";
+import tw, { styled } from "twin.macro";
 import { AboutEducation, AboutFunFact, AboutSocial, HomePageHero, Navbar } from "../components";
 import { NextSeo, SiteLinksSearchBoxJsonLd, SocialProfileJsonLd } from "next-seo";
 import Head from "next/head";
