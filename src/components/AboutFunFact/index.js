@@ -6,7 +6,7 @@ const Wrapper = styled.section(() => [
         flex
         flex-col
         items-center
-        padding[64px 32px]
+        padding[64px 28px]
         md:padding[128px 170px]
         text-dark
     `
@@ -115,7 +115,7 @@ const ShadowEffect = styled.span(() => [
 export default function About() {
     return (
         <Wrapper>
-            <Title onClick={() => console.log(getWindowDimensions())}>About Me.</Title>
+            <Title>About Me.</Title>
             <Quotes>
                 <Subtitle>FUN FACT</Subtitle>
                 <Content>
