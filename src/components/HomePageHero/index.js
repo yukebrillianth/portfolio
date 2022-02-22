@@ -14,14 +14,13 @@ const Title = styled.h1(() => [
         font-semibold
         font-size[54px]
         line-height[72px]
-        md:font-bold
-        md:font-size[72px]
-        // md:line-height[72px]
-        md:text-center
         text-white
         p-[28px]
-        md:margin-top[115px]
         z-50
+        md:font-bold
+        md:font-size[72px]
+        md:text-center
+        md:margin-top[115px]
     `
 ]);
 
@@ -48,14 +47,17 @@ const TitleGradient = styled.span(() => [
 
 const ShadowEffect = styled.span(() => [
     tw`
-        hidden
+        // hidden
         absolute
-        w-[300px]
-        h-[300px]
+        md:w-[300px]
+        md:h-[300px]
+        w-[150px]
+        h-[150px]
         z-0
         left-[12%]
         top-[15%]
         opacity-30
+        rounded-[150px]
     `,
     `
         background: conic-gradient(
@@ -80,7 +82,7 @@ export default function Hero() {
         <Wrapper id="Hero">
             <Title>
                 Hi, I'm <TitleGradient>Yuke Brilliant Hestiavin.</TitleGradient> <br />
-                I'm a web and android <br tw="hidden md:block" />
+                I'm a web & mobile <br tw="hidden md:block" />
                 app developer.
             </Title>
             <HeroIllustration>
