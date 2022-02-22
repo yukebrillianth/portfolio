@@ -1,75 +1,71 @@
-import tw, { styled } from "twin.macro"
+import tw, { styled } from "twin.macro";
 
-const Wrapper = styled.section(() => [
-    tw`
-        relative
-        flex
-        flex-col
-        padding[64px 32px]
-        md:padding[128px 170px]
-        text-white
-        z-10
-    `
-]);
+const Wrapper = tw.div`
+    relative
+    flex
+    flex-wrap
+    justify-around
+    items-center
+    h-full
+    padding[64px 32px 128px 32px]
+    md:padding[128px 170px 70px 170px]
+    text-white
+    z-10
+`;
 
-const Quotes = styled.div(() => [
-    tw`
-        z-10
-        flex
-        flex-col
-        mb-[100px]
-    `
-]);
+const EducationIllustration = tw.div`
+    mt-[64px]
+    2xl:mt-0
+    z-50
+`;
 
-const Subtitle = styled.span(() => [
-    tw`
-        font-semibold
-        font-size[13px]
-        line-height[23px]
-        before:content-[""]
-        before:inline-block
-        before:vertical-align[super]
-        before:border-primary
-        before:border-[1px]
-        before:width[32px]
-        before:mr-[1em]
-    `
-]);
+const Quotes = tw.div`
+    z-50
+    flex
+    flex-col
+`
 
-const Content = styled.span(() => [
-    tw`
-        flex
-        flex-wrap
-        justify-between
-        items-center
-    `
-]);
+const Subtitle = tw.span`
+    font-semibold
+    font-size[13px]
+    line-height[23px]
+    before:content-[""]
+    before:inline-block
+    before:vertical-align[super]
+    before:border-primary
+    before:border-[1px]
+    before:width[32px]
+    before:mr-[1em]
+`
 
-const ContentHeading = styled.h2(() => [
-    tw`
-        font-semibold
-        font-size[34px]
-        line-height[34px]
-        mt-[32px]
-        md:font-size[64px]
-        md:line-height[64px]
-        md:margin[32px 0 0 80px]
-    `
-]);
+const Content = tw.span`
+    flex
+    flex-wrap
+    justify-between
+    items-center
+`
 
-const ContentPararaph = styled.p(() => [
-    tw`
-        max-w-[404px]
-        mt-[40px]
-        md:margin[40px 0 0 80px]
-        font-normal
-        font-size[18px]
-        line-height[24px]
-        text-[#B8B8B8]
-        mb-[64px]
-        md:mb-0
-    `
-]);
+const ContentHeading = tw.h2`
+    font-semibold
+    font-size[34px]
+    line-height[34px]
+    mt-[32px]
+    md:font-size[64px]
+    md:line-height[64px]
+    md:margin[32px 0 0 80px]
+`
+
+const ContentPararaph = tw.p`
+    max-w-[635px]
+    mt-[40px]
+    md:margin[40px 0 0 80px]
+    font-normal
+    font-size[18px]
+    line-height[24px]
+    text-[#B8B8B8]
+    mb-[64px]
+    md:mb-0
+`
 
 const ShadowEffect = styled.span(() => [
     tw`
@@ -115,9 +111,11 @@ export default function AboutEducation() {
                             I'm currently in high school at SMAN 1 TAMAN and am building a portfolio, SaaS, hosting provider.
                         </ContentPararaph>
                     </span>
-                    <img src="/assets/education.svg" alt="pendidikan yukebrillianth" />
                 </Content>
             </Quotes>
+            <EducationIllustration>
+                <img src="/assets/education.svg" alt="pendidikan yukebrillianth" />
+            </EducationIllustration>
             <ShadowEffect />
         </Wrapper>
     )
