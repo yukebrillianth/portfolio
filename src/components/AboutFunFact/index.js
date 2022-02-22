@@ -95,7 +95,8 @@ const ShadowEffect = styled.span(() => [
         w-[300px]
         h-[300px]
         z-0
-        right-[20%]
+        md:right-[20%]
+        right-[0%]
         top-[25%]
         opacity-70
         rounded-[150px]
