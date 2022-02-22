@@ -1,10 +1,10 @@
 import tw from "twin.macro";
-import { AboutFunFact, HomePageHero, Navbar } from "../components";
+import { AboutEducation, AboutFunFact, AboutSocial, HomePageHero, Navbar } from "../components";
 import { NextSeo, SiteLinksSearchBoxJsonLd, SocialProfileJsonLd } from "next-seo";
 import Head from "next/head";
 
 const styles = {
-  darkSection: () => [
+  darkSection: (sticky) => [
     tw`
       bg-dark
       background-size[300%]
@@ -13,9 +13,10 @@ const styles = {
     `
       background-image: url(/assets/backgrounds/grid-dark.svg);
       background-position: 100%;
-    `
+    `,
+    sticky ? tw`relative` : ''
   ],
-  lightSection: () => [
+  lightSection: (sticky) => [
     tw`
       bg-white
     `,
@@ -23,8 +24,9 @@ const styles = {
       background-image: url(/assets/backgrounds/grid-light.svg);
       background-position: 100%;
       background-size: cover;
-    `
-  ]
+    `,
+    sticky ? tw`relative` : ''
+  ],
 }
 
 export default function Home() {
@@ -90,8 +92,9 @@ export default function Home() {
       <section css={styles.lightSection}>
         <AboutFunFact />
       </section>
-      <section css={styles.darkSection}>
-        <AboutFunFact />
+      <section css={styles.darkSection(true)}>
+        <AboutEducation />
+        <AboutSocial />
       </section>
     </>
   );
