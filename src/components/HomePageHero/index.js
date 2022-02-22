@@ -72,7 +72,7 @@ const ShadowEffect = styled.span(() => [
 
 const HeroIllustration = styled.div(() => [
     tw`
-        md:mt-[-120px]
+        md:mt-[-150px]
         z-0
     `
 ]);
