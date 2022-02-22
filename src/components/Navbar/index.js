@@ -65,7 +65,7 @@ const MainMenuList = styled.ul(() => [
         md:mt-0
         md:mb-0
         md:text-sm
-        font-semibold
+        font-medium
     `
 ]);
 
@@ -92,8 +92,8 @@ const MainCallToAction = styled.a(() => [
         border-radius[100px]
         hover:opacity-70
         text-white
-        font-bold
-        font-size[18px]
+        font-semibold
+        font-size[14px]
         margin-right[4px]
     `,
     `box-shadow: 0px 4px 20px rgba(255, 152, 0, 0.3);`
@@ -110,7 +110,7 @@ const MainCallToActionMobile = styled.a(() => [
         border-radius[100px]
         hover:opacity-70
         text-white
-        font-bold
+        font-semibold
         font-size[18px]
         margin-right[4px]
         mt-[18px]
@@ -143,10 +143,10 @@ export default function Navbar() {
                             <MainMenuLink href="/">CONTACT</MainMenuLink>
                         </li>
                     </MainMenuList>
-                    <MainCallToActionMobile href="#toTelegramOrEmail">Let's Talk</MainCallToActionMobile>
+                    <MainCallToActionMobile href="mailto:me@yukebrillianth.my.id">Let's Talk</MainCallToActionMobile>
                 </MainMenu>
                 <span className="flex flex-row">
-                    <MainCallToAction href="#toTelegramOrEmail">Let's Talk</MainCallToAction>
+                    <MainCallToAction href="mailto:me@yukebrillianth.my.id">Let's Talk</MainCallToAction>
                     <button onClick={() => setMenuOpen(!menuOpen)} type="button" className="inline-flex items-center p-2 ml-1 text-sm text-white rounded-lg md:hidden focus:outline-none focus:ring-2">
                         <span className="sr-only">Open main menu</span>
                         {/* <svg className={menuOpen ? "hidden" : "w-6 h-6"} fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clipRule="evenodd"></path></svg> */}
