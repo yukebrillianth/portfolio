@@ -2,6 +2,7 @@ import tw, { styled } from "twin.macro"
 
 const Wrapper = styled.section(() => [
     tw`
+        relative
         flex
         flex-col
         items-center
@@ -86,6 +87,30 @@ const SkillLogo = styled.div(() => [
     `
 ]);
 
+const ShadowEffect = styled.span(() => [
+    tw`
+        absolute
+        md:w-[300px]
+        md:h-[300px]
+        w-[300px]
+        h-[300px]
+        z-0
+        right-[20%]
+        top-[25%]
+        opacity-70
+        rounded-[150px]
+    `,
+    `
+        background: conic-gradient(
+        from 180deg at 50% 50%,
+        #b524f9 0deg,
+        #ff9800 0.04deg,
+        #bb34fa 360deg
+        );
+        filter: blur(100px);
+    `
+]);
+
 export default function About() {
     return (
         <Wrapper>
@@ -109,6 +134,7 @@ export default function About() {
                 <img src="/assets/icons/laravel.svg" alt="laravel-logo" />
                 <img src="/assets/icons/gql.svg" alt="gql-logo" />
             </SkillLogo>
+            <ShadowEffect />
         </Wrapper>
     )
 }
