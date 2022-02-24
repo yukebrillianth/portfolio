@@ -2,6 +2,7 @@ import tw from "twin.macro";
 import propTypes from "prop-types";
 
 const Wrapper = tw.div`
+    relative
     flex
     flex-col
     items-start
@@ -33,9 +34,10 @@ const Username = tw.span`
     text-[#b8b8b8]
 `;
 
-export default function SocialCard({ iconSource, iconAlt, iconTitle, IconUsername }) {
+export default function SocialCard({ iconSource, iconAlt, iconTitle, IconUsername, profileUrl }) {
     return (
         <Wrapper>
+            <a href={profileUrl} tw="after:absolute after:inset-0" rel="nofollow nooperner" />
             <Icon>
                 <img tw="mr-[6px]" src={iconSource} alt={iconAlt} />
                 <IconTitle>{iconTitle}</IconTitle>
@@ -50,4 +52,5 @@ SocialCard.propTypes = {
     iconAlt: propTypes.string.isRequired,
     iconTitle: propTypes.string.isRequired,
     IconUsername: propTypes.string.isRequired,
+    profileUrl: propTypes.string,
 };

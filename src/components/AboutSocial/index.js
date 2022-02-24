@@ -8,7 +8,7 @@ const Wrapper = tw.div`
     justify-around
     items-center
     h-full
-    padding[0 32px]
+    padding[0 32px 128px 32px]
     md:padding[0 170px 128px 170px]
     text-white
     z-10
@@ -106,12 +106,12 @@ export default function AboutSocial() {
     return (
         <Wrapper>
             <SocialIcon>
-                <SocialCard iconSource="/assets/icons/Github.svg" iconAlt="Github @yukebrillianth" iconTitle="GitHub" IconUsername="@yukebrillianth" />
-                <SocialCard iconSource="/assets/icons/Instagram.svg" iconAlt="Instagram @yukebrillianth" iconTitle="Instagram" IconUsername="@yukebrillianth" />
-                <SocialCard iconSource="/assets/icons/LinkedIn.svg" iconAlt="LinkedIn @yukebrillianth" iconTitle="LinkedIn" IconUsername="@yukebrillianth" />
-                <SocialCard iconSource="/assets/icons/Telegram.svg" iconAlt="Telegram @yukebrillianth" iconTitle="Telegram" IconUsername="@yukebrillianth" />
-                <SocialCard iconSource="/assets/icons/YouTube.svg" iconAlt="YouTube @yukebrillianth" iconTitle="YouTube" IconUsername="@yukebrillianth" />
-                <SocialCard iconSource="/assets/icons/Twitter.svg" iconAlt="Twitter @yukebrillianth" iconTitle="Twitter" IconUsername="@yukebrillianth" />
+                <SocialCard profileUrl="https://github.com/yukebrillianth" iconSource="/assets/icons/Github.svg" iconAlt="Github @yukebrillianth" iconTitle="GitHub" IconUsername="@yukebrillianth" />
+                <SocialCard profileUrl="https://instagram.com/yukebrillianth" iconSource="/assets/icons/Instagram.svg" iconAlt="Instagram @yukebrillianth" iconTitle="Instagram" IconUsername="@yukebrillianth" />
+                <SocialCard profileUrl="https://www.linkedin.com/in/yukebrillianth" iconSource="/assets/icons/LinkedIn.svg" iconAlt="LinkedIn @yukebrillianth" iconTitle="LinkedIn" IconUsername="@yukebrillianth" />
+                <SocialCard profileUrl="https://t.me/yukebrillianth" iconSource="/assets/icons/Telegram.svg" iconAlt="Telegram @yukebrillianth" iconTitle="Telegram" IconUsername="@yukebrillianth" />
+                <SocialCard profileUrl="https://www.youtube.com/channel/UCJ8ObQYEKKVS9TRhhST_7bg" iconSource="/assets/icons/YouTube.svg" iconAlt="YouTube @yukebrillianth" iconTitle="YouTube" IconUsername="@yukebrillianth" />
+                <SocialCard profileUrl="https://twitter.com/YukeBrillianth" iconSource="/assets/icons/Twitter.svg" iconAlt="Twitter @yukebrillianth" iconTitle="Twitter" IconUsername="@yukebrillianth" />
             </SocialIcon>
             <Quotes>
                 <Subtitle>MY SOCMED</Subtitle>
