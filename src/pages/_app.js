@@ -7,6 +7,7 @@ function MyApp({ Component, pageProps }) {
     <>
       <Head>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="theme-color" content="#ffffff" />
         {/* <link href="/assets/fonts/stylesheet.css" rel="stylesheet" /> */}
       </Head>
       <Component {...pageProps} />
