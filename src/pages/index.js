@@ -1,6 +1,18 @@
-import tw, { styled } from "twin.macro";
-import { AboutEducation, AboutFunFact, AboutSocial, HomePageHero, Navbar } from "../components";
-import { NextSeo, SiteLinksSearchBoxJsonLd, SocialProfileJsonLd } from "next-seo";
+import tw from "twin.macro";
+import {
+  AboutEducation,
+  AboutFunFact,
+  AboutSocial,
+  Footer,
+  HomePageHero,
+  Navbar,
+  Portfolio,
+} from "../components";
+import {
+  NextSeo,
+  SiteLinksSearchBoxJsonLd,
+  SocialProfileJsonLd,
+} from "next-seo";
 import Head from "next/head";
 
 const styles = {
@@ -16,7 +28,7 @@ const styles = {
       background-image: url(/assets/backgrounds/grid-dark.svg);
       background-position: 100%;
     `,
-    sticky ? tw`relative` : ''
+    sticky ? tw`relative` : "",
   ],
   lightSection: (sticky) => [
     tw`
@@ -31,15 +43,18 @@ const styles = {
       background-position: 100%;
       // background-size: cover;
     `,
-    sticky ? tw`relative` : ''
+    sticky ? tw`relative` : "",
   ],
-}
+};
 
-export default function Home() {
+export default function Home({ posts }) {
   return (
     <>
       <Head>
-        <meta name="keywords" content="yukebrillianth, cv yuke brilliant, portfolio yuke brilliant, profil yuke brilliant" />
+        <meta
+          name="keywords"
+          content="yukebrillianth, cv yuke brilliant, portfolio yuke brilliant, profil yuke brilliant"
+        />
       </Head>
       <NextSeo
         title="Yuke Brilliant - Personal Portfolio and Tech Blog"
@@ -48,23 +63,24 @@ export default function Home() {
         noindex={false}
         nofollow={false}
         openGraph={{
-          title: 'Yuke Brilliant - Personal Portfolio and Tech Blog',
-          description: 'Portfolio Yuke Brilliant Hestiavin, I am a web developer and android app developer from Surabaya, Indonesia (Front End and Back End)',
-          url: 'https://yukebrillianth.my.id',
-          type: 'profile',
-          locale: 'id_ID',
+          title: "Yuke Brilliant - Personal Portfolio and Tech Blog",
+          description:
+            "Portfolio Yuke Brilliant Hestiavin, I am a web developer and android app developer from Surabaya, Indonesia (Front End and Back End)",
+          url: "https://yukebrillianth.my.id",
+          type: "profile",
+          locale: "id_ID",
           profile: {
-            firstName: 'Yuke Brilliant',
-            lastName: 'Hestiavin',
-            username: 'yukebrillianth',
-            gender: 'male',
+            firstName: "Yuke Brilliant",
+            lastName: "Hestiavin",
+            username: "yukebrillianth",
+            gender: "male",
           },
           images: [
             {
-              url: 'https://secure.gravatar.com/avatar/929dbf043c45dcc538dbd2c20823a87b?s=1080',
+              url: "https://secure.gravatar.com/avatar/929dbf043c45dcc538dbd2c20823a87b?s=1080",
               width: 1080,
               height: 1080,
-              alt: 'Profile Photo',
+              alt: "Profile Photo",
             },
           ],
         }}
@@ -75,19 +91,19 @@ export default function Home() {
         name="Yuke Brilliant Hestiavin"
         url="https://yukebrillianth.my.id"
         sameAs={[
-          'https://www.facebook.com/yuke.brilliant.1/',
-          'https://instagram.com/yukebrillianth',
-          'https://www.linkedin.com/in/yukebrillianth',
-          'https://twitter.com/yukebrillianth',
-          'https://github.com/yukebrillianth',
+          "https://www.facebook.com/yuke.brilliant.1/",
+          "https://instagram.com/yukebrillianth",
+          "https://www.linkedin.com/in/yukebrillianth",
+          "https://twitter.com/yukebrillianth",
+          "https://github.com/yukebrillianth",
         ]}
       />
       <SiteLinksSearchBoxJsonLd
         url="https://yukebrillianth.my.id"
         potentialActions={[
           {
-            target: 'https://yukebrillianth.my.id/portfolio/search?q',
-            queryInput: 'search_term_string',
+            target: "https://yukebrillianth.my.id/portfolio/search?q",
+            queryInput: "search_term_string",
           },
         ]}
       />
@@ -101,7 +117,10 @@ export default function Home() {
       <section css={styles.darkSection(true)}>
         <AboutEducation />
         <AboutSocial />
+        <Portfolio />
       </section>
+      <section ccs={styles.darkSection(true)}></section>
+      <Footer />
     </>
   );
 }
