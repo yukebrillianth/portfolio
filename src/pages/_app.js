@@ -2,7 +2,7 @@ import Head from "next/head";
 import "tailwindcss/tailwind.css";
 import "../../public/assets/fonts/stylesheet.css";
 import { ApolloProvider } from "@apollo/client";
-import client from "./apollo-client";
+import client from "../../apollo-client";
 
 
 function MyApp({ Component, pageProps }) {
