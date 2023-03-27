@@ -1,6 +1,5 @@
 import tw, { styled } from "twin.macro";
-import Image from "next/image";
-import { css } from "styled-components";
+import propTypes from 'prop-types';
 
 const Wrapper = styled.div(({ src }) => [
   tw`
@@ -43,12 +42,31 @@ const CardInfo = styled.a(() => [
       `,
 ]);
 
-export default function PortfolioCard({ imgUrl, title, slug }) {
-  return (
-    <Wrapper src={imgUrl}>
+export default function PortfolioCard(props) {
+  if (props.isSkeleton === true) {
+    return <Wrapper className="animate-pulse" src="assets/placeholder.jpg">
       <CardInfoWrapper>
-        <CardInfo href={"/portfolio/" + slug}>{title}</CardInfo>
+        <CardInfo href={"/portfolio"}>{props.title}</CardInfo>
       </CardInfoWrapper>
     </Wrapper>
-  );
+  } else {
+    return <Wrapper src={props.imgUrl}>
+      <CardInfoWrapper>
+        <CardInfo href={"/portfolio/" + props.slug}>{props.title}</CardInfo>
+      </CardInfoWrapper>
+    </Wrapper>
+  }
+}
+
+PortfolioCard.defaultProps = {
+  title: 'Portfolio title is loading...',
+  slug: '/portfolio',
+  imgUrl: 'Portfolio imgUrl is loading...',
+}
+
+PortfolioCard.propTypes = {
+  isSkeleton: propTypes.bool,
+  title: propTypes.string.isRequired,
+  slug: propTypes.string.isRequired,
+  imgUrl: propTypes.string.isRequired
 }
