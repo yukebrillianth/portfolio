@@ -44,7 +44,7 @@ const CardInfo = styled.a(() => [
 
 export default function PortfolioCard(props) {
   if (props.isSkeleton === true) {
-    return <Wrapper className="animate-pulse" src="assets/placeholder.jpg">
+    return <Wrapper className="animate-pulse" src="/assets/placeholder.jpg">
       <CardInfoWrapper>
         <CardInfo href={"/portfolio"}>{props.title}</CardInfo>
       </CardInfoWrapper>

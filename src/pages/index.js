@@ -5,6 +5,7 @@ import {
   AboutSocial,
   Footer,
   HomePageHero,
+  LatestPosts,
   Navbar,
   Portfolio,
 } from "../components";
@@ -118,6 +119,9 @@ export default function Home({ posts }) {
         <AboutEducation />
         <AboutSocial />
         <Portfolio />
+      </section>
+      <section css={styles.lightSection}>
+        <LatestPosts />
       </section>
       <section ccs={styles.darkSection(true)}></section>
       <Footer />

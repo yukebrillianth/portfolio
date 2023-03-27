@@ -1,7 +1,7 @@
 import { gql } from "@apollo/client";
 
 export const GET_BLOG_POSTS = gql`
-    query GetBlogPosts {
+    query GetBlogPosts($first: Int) {
         posts(first: $first) {
         slug
         title
@@ -10,6 +10,10 @@ export const GET_BLOG_POSTS = gql`
         }
         publishedAt
         excerpt
+        category {
+            slug
+            title
+          }
         }
     }
 `;
