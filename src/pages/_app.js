@@ -1,6 +1,9 @@
 import Head from "next/head";
 import "tailwindcss/tailwind.css";
 import "../../public/assets/fonts/stylesheet.css";
+import { ApolloProvider } from "@apollo/client";
+import client from "./apollo-client";
+
 
 function MyApp({ Component, pageProps }) {
   return (
@@ -10,7 +13,9 @@ function MyApp({ Component, pageProps }) {
         <meta name="theme-color" content="#ffffff" />
         {/* <link href="/assets/fonts/stylesheet.css" rel="stylesheet" /> */}
       </Head>
-      <Component {...pageProps} />
+      <ApolloProvider client={client}>
+        <Component {...pageProps} />
+      </ApolloProvider>
     </>
   );
 }
