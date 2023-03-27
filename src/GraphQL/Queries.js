@@ -1,8 +1,8 @@
 import { gql } from "@apollo/client";
 
-export const GET_LATEST_BLOG_POSTS = gql`
-    query GetLatestBlogPosts {
-        posts(first: 3) {
+export const GET_BLOG_POSTS = gql`
+    query GetBlogPosts {
+        posts(first: $first) {
         slug
         title
         coverImage {
@@ -12,4 +12,28 @@ export const GET_LATEST_BLOG_POSTS = gql`
         excerpt
         }
     }
+`;
+
+export const GET_ALL_PORTFOLIOS = gql`
+    query GetPortfolios($first: Int) {
+        portfolios(first: $first) {
+        slug
+        title
+        cover {
+            url(transformation: {document: {output: {format: webp}}})
+        }
+        }
+    }  
+`;
+
+export const GET_PORTFOLIOS_BY_CATEGORY = gql`
+    query GetPortfolios($category: PortfolioCategory, $first: Int) {
+        portfolios(first: $first, where: {category: $category}) {
+        slug
+        title
+        cover {
+            url(transformation: {document: {output: {format: webp}}})
+        }
+        }
+    }  
 `;

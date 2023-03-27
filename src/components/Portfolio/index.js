@@ -1,5 +1,8 @@
-import { useState } from "react";
+import { useQuery } from "@apollo/client";
+import Link from "next/link";
+import { useEffect, useState } from "react";
 import tw, { styled } from "twin.macro";
+import { GET_ALL_PORTFOLIOS, GET_PORTFOLIOS_BY_CATEGORY } from "../../GraphQL/Queries";
 import PortfolioCard from "./elements/PortfolioCard";
 
 const Wrapper = tw.div`
@@ -53,8 +56,100 @@ const CardWrapper = styled.div(() => [
         2xl:grid-cols-4
         grid-column-gap[20px]
         grid-row-gap[20px]
+        mb-[40px]
     `,
 ]);
+
+const LoadMoreBtn = styled.a(() => [
+  tw`
+      flex
+      justify-center
+      items-center
+      padding[8px 16px]
+      md:padding[12px 24px]
+      bg-primary
+      border-radius[100px]
+      hover:opacity-70
+      text-white
+      font-semibold
+      font-size[14px]
+      margin-right[4px]
+  `,
+  `box-shadow: 0px 4px 20px rgba(255, 152, 0, 0.3);`
+]);
+
+function DisplayPortfoliosCard() {
+  const [portfolios, setPortfolios] = useState([]);
+  const { loading, data } = useQuery(GET_ALL_PORTFOLIOS, {
+    variables: { first: 8 }
+  })
+
+  useEffect(() => {
+    if (data) {
+      setPortfolios(data.portfolios);
+    }
+  }, [data]);
+
+  if (loading) {
+    return (
+      <>
+        <PortfolioCard isSkeleton={true} />
+        <PortfolioCard isSkeleton={true} />
+        <PortfolioCard isSkeleton={true} />
+        <PortfolioCard isSkeleton={true} />
+        <PortfolioCard isSkeleton={true} />
+        <PortfolioCard isSkeleton={true} />
+        <PortfolioCard isSkeleton={true} />
+        <PortfolioCard isSkeleton={true} />
+      </>
+    )
+  }
+
+  return portfolios.map((portfolio) => (
+    <PortfolioCard
+      key={portfolio.slug}
+      imgUrl={portfolio.cover.url}
+      title={portfolio.title}
+      slug={portfolio.slug}
+    />
+  )
+  )
+}
+
+function DisplayPortfoliosCardByCategory(props) {
+  const [portfolios, setPortfolios] = useState([]);
+  const { loading, data } = useQuery(GET_PORTFOLIOS_BY_CATEGORY, {
+    variables: { first: 8, category: props.category }
+  });
+
+  useEffect(() => {
+    if (data) {
+      setPortfolios(data.portfolios)
+    }
+  }, [data]);
+  if (loading) {
+    return (
+      <>
+        <PortfolioCard isSkeleton={true} />
+        <PortfolioCard isSkeleton={true} />
+        <PortfolioCard isSkeleton={true} />
+        <PortfolioCard isSkeleton={true} />
+        <PortfolioCard isSkeleton={true} />
+        <PortfolioCard isSkeleton={true} />
+        <PortfolioCard isSkeleton={true} />
+        <PortfolioCard isSkeleton={true} />
+      </>
+    )
+  }
+  return portfolios.map((portfolio) => (
+    <PortfolioCard
+      key={portfolio.slug}
+      imgUrl={portfolio.cover.url}
+      title={portfolio.title}
+      slug={portfolio.slug}
+    />
+  ));
+}
 
 export default function Portfolio() {
   const [activeMenu, setActiveMenu] = useState("All");
@@ -69,8 +164,8 @@ export default function Portfolio() {
           All
         </Menu>
         <Menu
-          onClick={() => setActiveMenu("Web")}
-          active={activeMenu === "Web" ? true : false}
+          onClick={() => setActiveMenu("Website")}
+          active={activeMenu === "Website" ? true : false}
         >
           Web
         </Menu>
@@ -88,47 +183,15 @@ export default function Portfolio() {
         </Menu>
       </MenuWrapper>
       <CardWrapper>
-        <PortfolioCard
-          imgUrl="https://img.freepik.com/free-vector/app-learn-languages_52683-43478.jpg?w=2000"
-          title="Affiliate SaaS with Golang and React"
-          slug="affiliate-saas"
-        />
-        <PortfolioCard
-          imgUrl="https://img.freepik.com/free-vector/location-app-screens-collection_23-2148684985.jpg?w=2000"
-          title="Affiliate SaaS with Golang and React"
-          slug="affiliate-saas"
-        />
-        <PortfolioCard
-          imgUrl="https://assets.materialup.com/uploads/58b46fea-e7ad-4c66-bbbb-64d691a44e5d/preview.png"
-          title="Affiliate SaaS with Golang and React"
-          slug="affiliate-saas"
-        />
-        <PortfolioCard
-          imgUrl="https://i.pinimg.com/originals/c9/3c/43/c93c4357e1c759280634317288844cdd.png"
-          title="Affiliate SaaS with Golang and React"
-          slug="affiliate-saas"
-        />
-        <PortfolioCard
-          imgUrl="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSo47WUCjEcdJT_cIbDicB91vcvolf05dnJyh6UpOWKLUlM5zsuOXJDfKdO02JLd-ed-As&usqp=CAU"
-          title="Affiliate SaaS with Golang and React"
-          slug="affiliate-saas"
-        />
-        <PortfolioCard
-          imgUrl="https://i.pinimg.com/736x/3c/98/eb/3c98eba06990bae15af6135b13159da6.jpg"
-          title="Affiliate SaaS with Golang and React"
-          slug="affiliate-saas"
-        />
-        <PortfolioCard
-          imgUrl="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQNb9TTe7jdVjCYicKVy7RH-lTLMyHNBe9tEgAOHicAusl4C9QtZLZR2rORtCyaLw8OieU&usqp=CAU"
-          title="Affiliate SaaS with Golang and React"
-          slug="affiliate-saas"
-        />
-        <PortfolioCard
-          imgUrl="https://cdn.dribbble.com/users/2530474/screenshots/14874956/media/a3a48eab8dbda01ec5d9114874490cd8.png?compress=1&resize=400x300  "
-          title="Affiliate SaaS with Golang and React"
-          slug="affiliate-saas"
-        />
+        {activeMenu === "All" ? (
+          <DisplayPortfoliosCard />
+        ) : (
+          <DisplayPortfoliosCardByCategory category={activeMenu} />
+        )}
       </CardWrapper>
+      <Link prefetch href="/portfolio" passHref>
+        <LoadMoreBtn>Show More</LoadMoreBtn>
+      </Link>
     </Wrapper>
   );
 }
