@@ -125,7 +125,7 @@ export default function About() {
                         and Frontend React <br />
                         & Next JS.
                     </ContentHeading>
-                    <ContentPararaph>Besides that I also have strong fundamentals of Backends such as PHP Laravel, Microservice Architecture and databases like RDBMS MySQL and Postgresql.</ContentPararaph>
+                    <ContentPararaph>Besides that, I also have strong fundamentals in Backends such as PHP Laravel, Microservice Architecture, and databases like RDBMS MySQL and PostgreSQL.</ContentPararaph>
                 </Content>
             </Quotes>
             <SkillLogo>

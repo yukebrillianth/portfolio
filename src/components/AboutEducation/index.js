@@ -101,14 +101,14 @@ export default function AboutEducation() {
                 <Content>
                     <span>
                         <ContentHeading>
-                            Now i am a student in <br tw="hidden md:block" />
+                            I am currently a student in <br tw="hidden md:block" />
                             high school.
                         </ContentHeading>
                         <ContentPararaph>
-                            I was born in Sidoarjo City on September 7, 2005, currently I live in Sidoarjo City. I learned programming since grade 4 by self-taught. Then when I was in junior high school at SMPN 1 TAMAN I won 1st place in the district level programming and provincial level animation competition.
+                            I am currently a student in high school. I was born in Sidoarjo City on September 7th, 2005, and currently live there. I taught myself programming since grade 4. Then, when I was in junior high school at SMPN 1 TAMAN, I won first place in a district-level programming and provincial-level animation competition.
                             <br />
                             <br />
-                            I'm currently in high school at SMAN 1 TAMAN and am building a portfolio, SaaS, hosting provider.
+                            I am currently attending SMAN 1 TAMAN and am building a portfolio, SaaS, and OpenSource App.
                         </ContentPararaph>
                     </span>
                 </Content>

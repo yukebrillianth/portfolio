@@ -122,7 +122,7 @@ export default function AboutSocial() {
                             media accounts.
                         </ContentHeading>
                         <ContentPararaph>
-                            I have several social media accounts that you can follow, usually I share my experiences on my social media accounts. Some of my accounts are rarely active.
+                            I have several social media accounts that you can follow. Usually, I share my experiences on these accounts, although some of them are rarely active.
                         </ContentPararaph>
                     </span>
                 </Content>
