@@ -4,6 +4,7 @@ import { Navbar } from "../../components";
 export default function PortfolioDetail() {
     const router = useRouter();
     const { slug } = router.query;
+
     return (
         <>
             <Navbar />
