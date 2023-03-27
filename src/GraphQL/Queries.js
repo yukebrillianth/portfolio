@@ -41,3 +41,23 @@ export const GET_PORTFOLIOS_BY_CATEGORY = gql`
         }
     }  
 `;
+
+export const GET_PORFOLIO_BY_SLUG = gql`
+query GetPortfolioBySlug($slug: String) {
+    portfolio(where: {slug: $slug}) {
+      category
+      title
+      images {
+        id
+        url(transformation: {document: {output: {format: webp}}})
+      }
+      projectUri
+      portfolioStatus
+      details {
+        raw
+      }
+      description
+    }
+  }
+  
+`;
