@@ -54,6 +54,7 @@ const MediumText = styled.h2(() => [
         font-size[64px]
         line-height[64px]
         font-semibold
+        text-center
         mb-6
     `
 ]);
