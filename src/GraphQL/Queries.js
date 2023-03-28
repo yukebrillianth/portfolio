@@ -48,7 +48,7 @@ query GetPortfolioBySlug($slug: String) {
       category
       title
       images {
-        id
+        fileName
         url(transformation: {document: {output: {format: webp}}})
       }
       projectUri

@@ -1,6 +1,7 @@
-import { useRouter } from "next/router";
 import tw from "twin.macro";
-import { Navbar, PortfolioPageTop } from "../../components";
+import client from "../../../apollo-client";
+import { Navbar, PortfolioPageTop, PortfolioDetails, Footer } from "../../components";
+import { GET_PORFOLIO_BY_SLUG } from "../../GraphQL/Queries";
 
 const styles = {
   darkSection: (sticky) => [
@@ -34,17 +35,36 @@ const styles = {
   ],
 };
 
+export async function getServerSideProps({ params }) {
+  const { data } = await client.query({
+    query: GET_PORFOLIO_BY_SLUG,
+    variables: {
+      slug: params.slug
+    }
+  })
+  if (!data.portfolio) {
+    return { notFound: true }
+  } else {
+    return {
+      props: {
+        data
+      }
+    }
+  }
+}
 
-export default function PortfolioDetail() {
-  const router = useRouter();
-  const { slug } = router.query;
-
+export default function PortfolioDetail(props) {
   return (
     <>
       <section css={styles.darkSection}>
         <Navbar />
-        <PortfolioPageTop slug={slug} />
+        <PortfolioPageTop {...props.data} />
       </section>
+      <section css={styles.lightSection}>
+        <PortfolioDetails content={props.data.portfolio.details.raw} />
+      </section>
+      <section ccs={styles.darkSection(true)}></section>
+      <Footer />
     </>
   );
 }

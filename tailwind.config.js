@@ -13,7 +13,8 @@ module.exports = {
       },
       fontFamily: {
         Gilroy: ["Gilroy", "sans-serif"]
-      }
+      },
+      backgroundColor: ['even'],
     },
   },
   variants: {

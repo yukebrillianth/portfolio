@@ -7,3 +7,5 @@ export { default as Portfolio } from "./Portfolio";
 export { default as Footer } from "./Footer";
 export { default as LatestPosts } from "./LatestPosts";
 export { default as PortfolioPageTop } from "./PortfolioPageTop";
+export { default as PortfolioDetails } from "./PortfolioDetails";
+export { default as Button } from "./Button";
