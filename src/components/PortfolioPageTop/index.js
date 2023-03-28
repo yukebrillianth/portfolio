@@ -42,7 +42,8 @@ const ImagesContainer = styled.div`
     ${tw`
             max-w-5xl
             mt-[83px]
-            px-[32px]
+            sm:px-[32px]
+            px-[20px]
             // w-full
             flex
             flex-col

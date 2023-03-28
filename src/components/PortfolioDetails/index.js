@@ -9,19 +9,10 @@ const Wrapper = styled.section(() => [
         flex
         flex-col
         items-center
-        padding[64px 28px]
+        padding[64px 20px]
+        sm:padding[64px 28px]
         md:padding[28px 170px]
         text-dark
-    `
-]);
-
-const Title = styled.h2(() => [
-    tw`
-        font-semibold
-        font-size[3.375rem]
-        line-height[3.687rem]
-        mt-0
-        mb-[92px]
     `
 ]);
 
@@ -127,12 +118,21 @@ const Details = styled.article`
     }
     thead {
         ${tw`
+        whitespace-nowrap 
                 bg-gray-800
                 text-white
                 px-6 py-4
             `
     }
     }
+
+    thead th {
+        ${tw`
+            px-6
+            text-center
+        `}
+    }
+
     tbody {
         ${tw`
             border-b
