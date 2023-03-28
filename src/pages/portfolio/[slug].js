@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import tw from "twin.macro";
 import client from "../../../apollo-client";
 import { Navbar, PortfolioPageTop, PortfolioDetails, Footer } from "../../components";
@@ -54,6 +55,18 @@ export async function getServerSideProps({ params }) {
 }
 
 export default function PortfolioDetail(props) {
+  useEffect(() => {
+    const script = document.createElement('script');
+
+    script.src = "/table.js";
+    script.async = true;
+
+    document.body.appendChild(script);
+
+    return () => {
+      document.body.removeChild(script);
+    }
+  }, []);
   return (
     <>
       <section css={styles.darkSection}>

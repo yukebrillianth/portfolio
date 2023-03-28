@@ -55,9 +55,8 @@ const Details = styled.article`
     h2 {
         ${tw`
                 mb-4 
-                text-xl 
-                text-gray-900 
-                md:text-2xl 
+                text-2xl 
+                text-gray-900
                 lg:text-3xl
             `
     }
@@ -111,15 +110,20 @@ const Details = styled.article`
             `
     }
     }
+    
     table {
         ${tw`
             border-collapse 
             table-auto 
             border
-            w-full 
+            w-full
+            min-w-full
             text-sm
             `
     }
+        width: 100% !important; 
+        word-wrap: break-word; 
+        word-break: break-all;
     }
     thead {
         ${tw`
