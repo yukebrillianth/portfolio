@@ -114,12 +114,21 @@ export default function Footer() {
               height={16}
             />
           </FooterInfoLink>
-          <FooterInfoLink href="https://pages.cloudflare.com/">
+          {/* <FooterInfoLink href="https://pages.cloudflare.com/">
             Deployed with
             <Image
               src="/assets/icons/cloudflare.svg"
               alt="Deployed with cloudflare"
               width={35}
+              height={16}
+            />
+          </FooterInfoLink> */}
+          <FooterInfoLink href="https://hygraph.com/">
+            Backend with
+            <Image
+              src="/assets/icons/graphcms.svg"
+              alt="Backend with GraphCMS"
+              width={16}
               height={16}
             />
           </FooterInfoLink>
