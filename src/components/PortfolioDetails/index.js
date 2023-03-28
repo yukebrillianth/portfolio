@@ -77,6 +77,11 @@ const Details = styled.article`
         margin: 16px 0;
         padding: 0 0 0 40px;
     }
+    lo {
+        ${tw`
+            my-2
+        `}
+    }
     ol {
         list-style: decimal;
     }
