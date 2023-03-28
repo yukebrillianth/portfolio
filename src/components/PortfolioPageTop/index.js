@@ -1,7 +1,6 @@
 import { Dialog, Transition } from '@headlessui/react';
 import React, { useState } from 'react';
 import tw, { styled } from 'twin.macro';
-import Link from '../../../public/assets/icons/link.svg'
 
 const Wrapper = styled.section(() => [
     tw`
