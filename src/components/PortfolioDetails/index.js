@@ -77,7 +77,7 @@ const Details = styled.article`
         margin: 16px 0;
         padding: 0 0 0 40px;
     }
-    lo {
+    li {
         ${tw`
             my-2
         `}
