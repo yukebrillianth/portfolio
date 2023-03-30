@@ -24,6 +24,7 @@ const Wrapper = styled.div(() => [
         items-center
         justify-center
         md:px-0
+        px-8
         min-h-screen
     `
 ]);

@@ -187,7 +187,7 @@ export default function Portfolio() {
     return (
         <>
             <Navbar />
-            <section css={styles.darkSection(true)}>
+            <section css={styles.darkSection}>
                 <Wrapper>
                     <Title>Portfolio.</Title>
                     <MenuWrapper>
