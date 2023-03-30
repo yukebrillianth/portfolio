@@ -186,8 +186,8 @@ export default function Portfolio() {
     const [activeMenu, setActiveMenu] = useState("All");
     return (
         <>
-            <section css={styles.darkSection}>
-                <Navbar />
+            <Navbar />
+            <section css={styles.darkSection(true)}>
                 <Wrapper>
                     <Title>Portfolio.</Title>
                     <MenuWrapper>
