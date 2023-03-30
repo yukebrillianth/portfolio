@@ -1,3 +1,4 @@
+import { NextSeo } from "next-seo";
 import { useEffect } from "react";
 import tw from "twin.macro";
 import client from "../../../apollo-client";
@@ -48,7 +49,8 @@ export async function getServerSideProps({ params }) {
   } else {
     return {
       props: {
-        data
+        data,
+        slug: params.slug
       }
     }
   }
@@ -69,6 +71,34 @@ export default function PortfolioDetail(props) {
   }, []);
   return (
     <>
+      <NextSeo
+        title={props.data.portfolio.title + " - Yuke Brilliant"}
+        description={props.data.portfolio.description}
+        canonical={"https://www.yukebrillianth.my.id/" + props.slug}
+        noindex={false}
+        nofollow={false}
+        openGraph={{
+          title: props.data.portfolio.title + " - Yukebrillianth",
+          description: props.data.portfolio.description,
+          url: "https://www.yukebrillianth.my.id/" + props.slug,
+          type: "profile",
+          locale: "id_ID",
+          profile: {
+            firstName: "Yuke Brilliant",
+            lastName: "Hestiavin",
+            username: "yukebrillianth",
+            gender: "male",
+          },
+          images: [
+            {
+              url: "https://secure.gravatar.com/avatar/929dbf043c45dcc538dbd2c20823a87b?s=1080",
+              width: 1080,
+              height: 1080,
+              alt: "Profile Photo",
+            },
+          ],
+        }}
+      />
       <section css={styles.darkSection}>
         <Navbar />
         <PortfolioPageTop {...props.data} />
