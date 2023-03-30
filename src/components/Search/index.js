@@ -3,7 +3,7 @@ import propTypes from 'prop-types';
 import styled from 'styled-components';
 import tw from 'twin.macro';
 
-const Wrapper = styled.div`
+const Wrapper = styled.form`
     ${tw`
             flex
             w-full
@@ -25,7 +25,7 @@ const Input = styled.input`
             py-3.5
             px-[26px]
             rounded-full
-            w-[90vw]
+            w-full
             md:w-[284px]
         `
     }
@@ -48,12 +48,10 @@ const Button = styled.button`
 export default function Search(props) {
     if (props.type === "portfolio") {
         return (
-            <form action='/portfolio/search'>
-                <Wrapper>
-                    <Input name='q' type="text" required="true" placeholder={props.placeholder} />
-                    <Button type='submit'>Search</Button>
-                </Wrapper>
-            </form>
+            <Wrapper action='/portfolio/search'>
+                <Input name='q' type="text" required="true" placeholder={props.placeholder} />
+                <Button type='submit'>Search</Button>
+            </Wrapper>
         )
     }
     return (
