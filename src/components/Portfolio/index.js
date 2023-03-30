@@ -12,7 +12,7 @@ const Wrapper = tw.div`
     justify-between
     xl:justify-center
     padding[64px 28px]
-    md:padding[128px 170px]
+    2xl:padding[128px 170px]
     text-white
 `;
 
@@ -52,6 +52,7 @@ const CardWrapper = styled.div(() => [
   tw`
         grid
         grid-cols-1
+        lg:grid-cols-2
         xl:grid-cols-3
         2xl:grid-cols-4
         grid-column-gap[20px]
