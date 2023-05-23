@@ -6,7 +6,7 @@ export default function purge(req, res) {
         res.status(405).send({ message: 'Bad request method' })
     } else {
         try {
-            async () => client.resetStore()
+            client.resetStore()
             res.status(200).json({ status: 'ok', message: 'Purge cache success' })
         } catch {
             res.status(500).json({ status: 'error' })
