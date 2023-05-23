@@ -49,14 +49,14 @@ export default function Search(props) {
     if (props.type === "portfolio") {
         return (
             <Wrapper action='/portfolio/search'>
-                <Input name='q' type="text" required="true" placeholder={props.placeholder} />
+                <Input name='q' type="text" required={true} placeholder={props.placeholder} />
                 <Button type='submit'>Search</Button>
             </Wrapper>
         )
     }
     return (
         <Wrapper>
-            <Input type="text" required="true" placeholder={props.placeholder} />
+            <Input type="text" required={true} placeholder={props.placeholder} />
             <Button>Search</Button>
         </Wrapper>
     )
