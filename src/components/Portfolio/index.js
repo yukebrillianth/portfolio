@@ -16,7 +16,7 @@ const Wrapper = tw.div`
     text-white
 `;
 
-const Title = tw.h2`
+const Title = tw.h1`
     font-semibold
     font-size[3.375rem]
     line-height[3.687rem]
