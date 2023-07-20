@@ -2,13 +2,13 @@ import { useRouter } from "next/router";
 import Image from "next/image";
 import tw, { styled } from "twin.macro";
 
-const Wrapper = styled.div(() => [
-  `
+const Wrapper = styled.div(({ light }) => [
+  !light && `
       background-image: url(/assets/backgrounds/grid-dark.svg);
       background-position: 100%;
     `,
   tw`
-        bg-dark
+        // bg-dark
         py-[64px]
         md:py-[70px]
         // px-[24px]
@@ -18,6 +18,7 @@ const Wrapper = styled.div(() => [
         lg:background-size[200%]
         xl:background-size[cover]
     `,
+  !light && tw`bg-dark`
 ]);
 
 const Container = styled.div(() => [
@@ -84,12 +85,12 @@ const FooterInfoLink = styled.a(() => [
     `,
 ]);
 
-export default function Footer() {
+export default function Footer(props) {
   return (
-    <Wrapper>
+    <Wrapper light={props.light || false}>
       <Container>
         <MenuList>
-          <MenuLink href="/about">About</MenuLink>
+          <MenuLink href="/#about">About</MenuLink>
           <MenuLink href="/contact">Contact</MenuLink>
           <MenuLink href="/portfolio">Portfolio</MenuLink>
           <MenuLink href="/blog">Blog</MenuLink>

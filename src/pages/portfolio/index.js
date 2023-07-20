@@ -227,7 +227,7 @@ export default function Portfolio() {
                         )}
                     </CardWrapper>
                 </Wrapper>
-                <Footer />
+                <Footer light />
             </section>
         </>
     );

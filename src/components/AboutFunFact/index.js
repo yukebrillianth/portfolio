@@ -114,7 +114,7 @@ const ShadowEffect = styled.span(() => [
 
 export default function About() {
     return (
-        <Wrapper>
+        <Wrapper id="about">
             <Title>About Me.</Title>
             <Quotes>
                 <Subtitle>FUN FACT</Subtitle>
