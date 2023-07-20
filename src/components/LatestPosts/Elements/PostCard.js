@@ -96,7 +96,7 @@ function PostCard(props) {
                 <PostCardExcerpt>
                     {props.postExcerpt}
                 </PostCardExcerpt>
-                <Link prefetch href={props.postSlug} passHref>
+                <Link href={props.postSlug} passHref>
                     <PostCardCTA>READ MORE</PostCardCTA>
                 </Link>
             </PostCardDetailsContainer>
