@@ -137,10 +137,10 @@ export default function Navbar() {
                             <MainMenuLink href="/portfolio" active={router.pathname === "/portfolio" || router.pathname === "/portfolio/[slug]"}>PORTFOLIO</MainMenuLink>
                         </li>
                         <li>
-                            <MainMenuLink href="/">BLOG</MainMenuLink>
+                            <MainMenuLink href="/blog">BLOG</MainMenuLink>
                         </li>
                         <li>
-                            <MainMenuLink href="/">CONTACT</MainMenuLink>
+                            <MainMenuLink href="/contact">CONTACT</MainMenuLink>
                         </li>
                     </MainMenuList>
                     <MainCallToActionMobile href="mailto:me@yukebrillianth.my.id">Let's Talk</MainCallToActionMobile>

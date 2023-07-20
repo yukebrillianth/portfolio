@@ -61,3 +61,12 @@ query GetPortfolioBySlug($slug: String) {
   }
   
 `;
+
+export const GET_POSTS_CATEGORIES = gql`
+  query GetPostsCategories {
+    categories {
+      title
+      slug
+    }
+  }
+`;
