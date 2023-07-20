@@ -149,7 +149,7 @@ const Details = styled.article`
         ${tw`
                 border-b
                 even:bg-gray-100
-                hover:odd:bg-gray-200
+                hover:bg-gray-300
             `
     }
     }
