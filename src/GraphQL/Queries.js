@@ -8,7 +8,7 @@ export const GET_BLOG_POSTS = gql`
         coverImage {
             url(transformation: {document: {output: {format: webp}}})
         }
-        publishedAt
+        date
         excerpt
         category {
             slug

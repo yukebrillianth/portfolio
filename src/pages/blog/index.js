@@ -147,7 +147,7 @@ export default function Blog() {
                             key={post.slug}
                             postTitle={post.title}
                             postDate={
-                                formatDate(new Date(post.publishedAt))
+                                formatDate(new Date(post.date))
                             }
                             postExcerpt={post.excerpt}
                             postSlug={"blog/" + post.slug}

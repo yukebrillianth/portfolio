@@ -70,7 +70,7 @@ export default function LatestPosts() {
                 <PostCard
                     postTitle={post.title}
                     postDate={
-                        formatDate(new Date(post.publishedAt))
+                        formatDate(new Date(post.date))
                     }
                     postExcerpt={post.excerpt}
                     postSlug={"blog/" + post.slug}
