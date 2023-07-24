@@ -88,6 +88,31 @@ const LoadMoreBtn = styled.a(() => [
     `box-shadow: 0px 4px 20px rgba(255, 152, 0, 0.3);`
 ]);
 
+const ShadowEffect = styled.span(() => [
+    tw`
+        // hidden
+        absolute
+        md:w-[300px]
+        md:h-[300px]
+        w-[150px]
+        h-[150px]
+        z-0
+        left-[12%]
+        top-[15%]
+        opacity-30
+        rounded-[150px]
+    `,
+    `
+        background: conic-gradient(
+        from 180deg at 50% 50%,
+        #b524f9 0deg,
+        #ff9800 0.04deg,
+        #bb34fa 360deg
+        );
+        filter: blur(100px);
+    `
+]);
+
 export default function Blog() {
     const [posts, setPosts] = useState([]);
 
@@ -112,6 +137,7 @@ export default function Blog() {
                     <Title>Yuke's Personal Blog.</Title>
                     <Description>Sharing all my information, stories and personal experiences. I hope, readers can enjoy my writing in Indonesian.</Description>
                     <Search type="blog" placeholder="Search blog post...." action="/blog/search" />
+                    <ShadowEffect />
                 </Wrapper>
             </section>
             <section css={styles.lightSection}>
