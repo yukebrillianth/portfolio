@@ -96,7 +96,7 @@ export default function Search(props) {
                     </div>
                 </div>
                 {/* <InputWrapper> */}
-                <Input name='q' type="text" required={false} placeholder={props.placeholder} />
+                <Input name='q' type="text" required={false} placeholder={props.placeholder} defaultValue={props.value} />
                 <Button type='submit'>Search</Button>
                 {/* </InputWrapper> */}
             </Wrapper>
@@ -113,5 +113,6 @@ export default function Search(props) {
 Search.propTypes = {
     placeholder: propTypes.string.isRequired,
     type: propTypes.oneOf(['portfolio', 'blog']),
-    action: propTypes.string.isRequired
+    action: propTypes.string.isRequired,
+    value: propTypes.string
 }

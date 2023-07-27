@@ -18,6 +18,41 @@ export const GET_BLOG_POSTS = gql`
     }
 `;
 
+export const SEARCH_BLOG_POSTS = gql`
+query SearchBlogPosts($query: String) {
+  posts(where: {_search: $query}) {
+    slug
+    title
+    coverImage {
+      url(transformation: {document: {output: {format: webp}}})
+    }
+    date
+    excerpt
+    category {
+      slug
+      title
+    }
+  }
+}
+`;
+export const SEARCH_BLOG_POSTS_WITH_CATEGORY = gql`
+query SearchBlogPosts($query: String, $category: String) {
+  posts(where: {_search: $query, OR: {category: {title_contains: $category}}}) {
+    slug
+    title
+    coverImage {
+      url(transformation: {document: {output: {format: webp}}})
+    }
+    date
+    excerpt
+    category {
+      slug
+      title
+    }
+  }
+}
+`;
+
 export const GET_ALL_PORTFOLIOS = gql`
     query GetPortfolios($first: Int) {
         portfolios(first: $first) {
