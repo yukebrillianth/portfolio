@@ -63,7 +63,7 @@ query GetBlogPostBySlug($slug: String) {
 
 export const GET_ALL_PORTFOLIOS = gql`
     query GetPortfolios($first: Int) {
-        portfolios(first: $first, where: {public: true}) {
+        portfolios(first: $first, where: {public: true}, orderBy: date_DESC) {
         slug
         title
         cover {
@@ -75,7 +75,7 @@ export const GET_ALL_PORTFOLIOS = gql`
 
 export const GET_PORTFOLIOS_BY_CATEGORY = gql`
     query GetPortfolios($category: [PortfolioCategory!] = Website, $first: Int) {
-        portfolios(first: $first, where: {category_contains_some: $category, public: true}) {
+        portfolios(first: $first, where: {category_contains_some: $category, public: true}, orderBy: date_DESC) {
         slug
         title
         cover {
