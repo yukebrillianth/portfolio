@@ -142,7 +142,7 @@ export default function PortfolioDetail(props) {
       <section css={styles.lightSection}>
         <PortfolioDetails content={props.data.portfolio.details.raw} />
       </section>
-      <section ccs={styles.darkSection(true)}></section>
+      {/* <section ccs={styles.darkSection(true)}></section> */}
       <Footer />
     </>
   );
