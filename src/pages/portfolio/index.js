@@ -151,7 +151,7 @@ function DisplayPortfoliosCard() {
 function DisplayPortfoliosCardByCategory(props) {
     const [portfolios, setPortfolios] = useState([]);
     const { loading, data } = useQuery(GET_PORTFOLIOS_BY_CATEGORY, {
-        variables: { first: 8, category: props.category }
+        variables: { first: 8, category: [props.category] }
     });
 
     useEffect(() => {

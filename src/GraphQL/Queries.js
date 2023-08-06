@@ -53,9 +53,17 @@ query SearchBlogPosts($query: String, $category: String) {
 }
 `;
 
+export const GET_POST_BY_SLUG = gql`
+query GetBlogPostBySlug($slug: String) {
+  post(where: {slug: $slug}) {
+    title
+  }
+}
+`;
+
 export const GET_ALL_PORTFOLIOS = gql`
     query GetPortfolios($first: Int) {
-        portfolios(first: $first) {
+        portfolios(first: $first, where: {public: true}) {
         slug
         title
         cover {
@@ -66,8 +74,8 @@ export const GET_ALL_PORTFOLIOS = gql`
 `;
 
 export const GET_PORTFOLIOS_BY_CATEGORY = gql`
-    query GetPortfolios($category: PortfolioCategory, $first: Int) {
-        portfolios(first: $first, where: {category: $category}) {
+    query GetPortfolios($category: [PortfolioCategory!] = Website, $first: Int) {
+        portfolios(first: $first, where: {category_contains_some: $category, public: true}) {
         slug
         title
         cover {
