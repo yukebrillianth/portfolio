@@ -1,4 +1,4 @@
-import { NextSeo } from "next-seo";
+import { ArticleJsonLd, NextSeo, SoftwareAppJsonLd } from "next-seo";
 import { useEffect } from "react";
 import tw from "twin.macro";
 import client from "../../../apollo-client";
@@ -98,6 +98,44 @@ export default function PortfolioDetail(props) {
             },
           ],
         }}
+      />
+      <BreadcrumbJsonLd
+        itemListElements={[
+          {
+            position: 1,
+            name: 'Home',
+            item: 'https://yukebrillianth.my.id/',
+          },
+          {
+            position: 2,
+            name: 'Portfolio',
+            item: 'https://yukebrillianth.my.id/portfolio',
+          },
+          {
+            position: 3,
+            name: props.data.portfolio.title,
+            item: 'https://yukebrillianth.my.id/' + props.slug,
+          }
+        ]}
+      />
+      <ArticleJsonLd
+        useAppDir={false}
+        url="https://example.com/article"
+        title={props.data.portfolio.title}
+        images={props.data.portfolio.images}
+        datePublished="2015-02-05T08:00:00+08:00"
+        dateModified={props.data.portfolio.date}
+        authorName={[
+          {
+            name: 'Yuke Brilliant',
+            url: 'https://yukebrillianth.my.id/',
+          },
+        ]}
+        publisherName="yukebrillianth"
+        publisherLogo="https://www.yukebrillianth.my.id/assets/logo.svg"
+        description={props.data.portfolio.description}
+        isAccessibleForFree={true}
+
       />
       <section css={styles.darkSection}>
         <Navbar />
