@@ -160,7 +160,7 @@ export default function PortfolioPageTop(props) {
                         </div>
                     </Dialog>
                 </Transition>
-                <PortfolioCategory>{props.portfolio.category}</PortfolioCategory>
+                <PortfolioCategory>{props.portfolio.category.map((item) => item).join(" & ")}</PortfolioCategory>
                 <PortfolioTitleWrapper>
                     <PortfolioTitle>{props.portfolio.title}</PortfolioTitle>
                 </PortfolioTitleWrapper>
