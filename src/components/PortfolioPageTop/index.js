@@ -175,7 +175,7 @@ export default function PortfolioPageTop(props) {
                             }
                         })}
                     </ImagesPickerContainer>
-                    <StyledLink href={props.portfolio.projectUri} target="_blank"><img src="/assets/icons/link.svg" width="24" height="24" /> Link to this {props.portfolio.category}</StyledLink>
+                    <StyledLink href={props.portfolio.projectUri} target="_blank"><img src="/assets/icons/link.svg" width="24" height="24" /> Link to this {props.portfolio.category.map((item) => item).join("/")}</StyledLink>
                 </ImagesContainer>
                 <ShadowEffect />
             </Wrapper>
