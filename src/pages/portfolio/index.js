@@ -5,6 +5,7 @@ import tw from "twin.macro";
 import { Footer, Navbar, Search } from "../../components";
 import PortfolioCard from "../../components/Portfolio/elements/PortfolioCard";
 import { GET_ALL_PORTFOLIOS, GET_PORTFOLIOS_BY_CATEGORY } from "../../GraphQL/Queries";
+import { BreadcrumbJsonLd, NextSeo } from "next-seo";
 
 const styles = {
     darkSection: (sticky) => [
@@ -186,6 +187,48 @@ export default function Portfolio() {
     const [activeMenu, setActiveMenu] = useState("All");
     return (
         <>
+            <NextSeo
+                title={"Yuke Brilliant: Projects portfolio page"}
+                description={"Selamat datang di portofolio Yuke Brillianth, seorang ahli Web Developer dan Android App Developer yang berbasis di Surabaya, Indonesia. Lihatlah prestasi dan pengalaman saya dalam menciptakan platform digital yang menakjubkan dan inovatif."}
+                canonical={"https://www.yukebrillianth.my.id/portfolio"}
+                noindex={false}
+                nofollow={false}
+                openGraph={{
+                    title: "Yuke Brilliant: Projects portfolio page",
+                    description: "Selamat datang di portofolio Yuke Brillianth, seorang ahli Web Developer dan Android App Developer yang berbasis di Surabaya, Indonesia. Lihatlah prestasi dan pengalaman saya dalam menciptakan platform digital yang menakjubkan dan inovatif.",
+                    url: "https://www.yukebrillianth.my.id/portfolio",
+                    type: "profile",
+                    locale: "id_ID",
+                    profile: {
+                        firstName: "Yuke Brilliant",
+                        lastName: "Hestiavin",
+                        username: "yukebrillianth",
+                        gender: "male",
+                    },
+                    images: [
+                        {
+                            url: "https://secure.gravatar.com/avatar/929dbf043c45dcc538dbd2c20823a87b?s=1080",
+                            width: 1080,
+                            height: 1080,
+                            alt: "Profile Photo",
+                        },
+                    ],
+                }}
+            />
+            <BreadcrumbJsonLd
+                itemListElements={[
+                    {
+                        position: 1,
+                        name: 'Home',
+                        item: 'https://yukebrillianth.my.id/',
+                    },
+                    {
+                        position: 2,
+                        name: 'Portfolio',
+                        item: 'https://yukebrillianth.my.id/portfolio',
+                    }
+                ]}
+            />
             <Navbar />
             <section css={styles.darkSection}>
                 <Wrapper>
