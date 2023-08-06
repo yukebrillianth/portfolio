@@ -54,11 +54,9 @@ export async function getServerSideProps({ params }) {
       }
     }
   }
-  console.log(data);
 }
 
 export default function PortfolioDetail(props) {
-  console.log(props.data);
   useEffect(() => {
     const script = document.createElement('script');
 

@@ -105,11 +105,11 @@ export default function Home({ posts }) {
         url="https://yukebrillianth.my.id"
         potentialActions={[
           {
-            target: "https://yukebrillianth.my.id/portfolio/search?q=",
+            target: "https://yukebrillianth.my.id/portfolio/search?q",
             queryInput: "search_term_string",
           },
           {
-            target: "https://yukebrillianth.my.id/blog/search?category=all&q=",
+            target: "https://yukebrillianth.my.id/blog/search?category=all&q",
             queryInput: "search_term_string",
           },
         ]}

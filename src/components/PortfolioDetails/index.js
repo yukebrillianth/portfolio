@@ -48,7 +48,7 @@ const Details = styled.article`
                 mb-4 
                 text-2xl 
                 text-gray-900
-                lg:text-3xl
+                lg:font-size[32px]
             `
     }
     }
@@ -59,7 +59,8 @@ const Details = styled.article`
     }
     p {
         font-size: 20px;
-        font-weight: 33px
+        font-weight: 33px;
+        margin-top: .86em!important;
         ${tw`
                 my-4
             `
@@ -86,6 +87,7 @@ const Details = styled.article`
         list-style: decimal;
     }
     code {
+        margin-top: .86em!important
         ${tw`
                 bg-gray-100 
                 dark:bg-gray-800
@@ -96,6 +98,7 @@ const Details = styled.article`
     }
     }
     pre {
+        margin-top: .86em!important
         ${tw`
             bg-gray-100 
             dark:bg-gray-800 
@@ -154,6 +157,16 @@ const Details = styled.article`
     }
     }
 
+    h2:not(:first-child) {
+        margin-top: 1em;
+        padding-top: 1em;
+    }
+
+    h3:not(:first-child) {
+        margin-top: 1em;
+        padding-top: 1em;
+    }
+
     td {
         ${tw`
             whitespace-nowrap 
@@ -162,6 +175,10 @@ const Details = styled.article`
             py-4
             `
     }
+    }
+
+    div {
+        margin-top: .86em!important
     }
 `;
 
