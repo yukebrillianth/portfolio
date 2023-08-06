@@ -10,7 +10,9 @@ import {
   Portfolio,
 } from "../components";
 import {
+  BreadcrumbJsonLd,
   NextSeo,
+  OrganizationJsonLd,
   SiteLinksSearchBoxJsonLd,
   SocialProfileJsonLd,
 } from "next-seo";
@@ -59,14 +61,14 @@ export default function Home({ posts }) {
       </Head>
       <NextSeo
         title="Yuke Brilliant - Personal Portfolio and Tech Blog"
-        description="Portfolio Yuke Brilliant Hestiavin, I am a web developer and android app developer from Surabaya, Indonesia (Front End and Back End)"
+        description="Website Portfolio Yuke Brilliant, web developer asal surabaya. Jelajahi koleksi project terbaru dan perjalanan kreatif saya, jangan lupa kujungi yukebrillianth di semua sosmed saya."
         canonical="https://www.yukebrillianth.my.id"
         noindex={false}
         nofollow={false}
         openGraph={{
           title: "Yuke Brilliant - Personal Portfolio and Tech Blog",
           description:
-            "Portfolio Yuke Brilliant Hestiavin, I am a web developer and android app developer from Surabaya, Indonesia (Front End and Back End)",
+            "Website Portfolio Yuke Brilliant, web developer asal surabaya. Jelajahi koleksi project terbaru dan perjalanan kreatif saya, jangan lupa kujungi yukebrillianth di semua sosmed saya.",
           url: "https://yukebrillianth.my.id",
           type: "profile",
           locale: "id_ID",
@@ -103,9 +105,22 @@ export default function Home({ posts }) {
         url="https://yukebrillianth.my.id"
         potentialActions={[
           {
-            target: "https://yukebrillianth.my.id/portfolio/search?q",
+            target: "https://yukebrillianth.my.id/portfolio/search?q=",
             queryInput: "search_term_string",
           },
+          {
+            target: "https://yukebrillianth.my.id/blog/search?category=all&q=",
+            queryInput: "search_term_string",
+          },
+        ]}
+      />
+      <BreadcrumbJsonLd
+        itemListElements={[
+          {
+            position: 1,
+            name: 'Home',
+            item: 'https://yukebrillianth.my.id/',
+          }
         ]}
       />
       <section css={styles.darkSection}>
