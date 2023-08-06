@@ -1,4 +1,4 @@
-import { ArticleJsonLd, NextSeo, SoftwareAppJsonLd } from "next-seo";
+import { ArticleJsonLd, BreadcrumbJsonLd, NextSeo } from "next-seo";
 import { useEffect } from "react";
 import tw from "twin.macro";
 import client from "../../../apollo-client";
@@ -54,9 +54,11 @@ export async function getServerSideProps({ params }) {
       }
     }
   }
+  console.log(data);
 }
 
 export default function PortfolioDetail(props) {
+  console.log(props.data);
   useEffect(() => {
     const script = document.createElement('script');
 
@@ -122,9 +124,7 @@ export default function PortfolioDetail(props) {
         useAppDir={false}
         url="https://example.com/article"
         title={props.data.portfolio.title}
-        images={props.data.portfolio.images}
-        datePublished="2015-02-05T08:00:00+08:00"
-        dateModified={props.data.portfolio.date}
+        images={props.data.portfolio.images.map(image => image.url)}
         authorName={[
           {
             name: 'Yuke Brilliant',
