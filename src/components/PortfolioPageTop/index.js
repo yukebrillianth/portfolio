@@ -1,5 +1,5 @@
 import { Dialog, Transition } from '@headlessui/react';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import tw, { styled } from 'twin.macro';
 
 const Wrapper = styled.section(() => [
@@ -35,6 +35,18 @@ const PortfolioTitle = styled.h1(() => [
         font-semibold
         line-height[55px]
         text-center
+    `
+]);
+
+const PortfolioStatus = styled.span(() => [
+    tw`
+        text-xs
+        mt-7
+        font-semibold
+        bg-primary
+        px-2.5
+        py-0.5
+        rounded-full
     `
 ]);
 
@@ -137,6 +149,19 @@ const ShadowEffect = styled.span(() => [
 export default function PortfolioPageTop(props) {
     const [activeImage, setActiveImage] = useState(0);
     const [magnifierActive, setMagnifierActive] = useState(false);
+    const [formattedCategories, setFormattedCategories] = useState('')
+
+    useEffect(() => {
+        const categories = props.portfolio.category;
+
+        if (categories.length > 1) {
+            const lastCategory = categories.pop();
+            setFormattedCategories(`${categories.join(", ")} & ${lastCategory}`);
+        } else if (categories.length === 1) {
+            setFormattedCategories(categories[0]);
+        }
+    }, [])
+
     return (
         <>
             <Wrapper>
@@ -160,10 +185,11 @@ export default function PortfolioPageTop(props) {
                         </div>
                     </Dialog>
                 </Transition>
-                <PortfolioCategory>{props.portfolio.category.map((item) => item).join(" & ")}</PortfolioCategory>
+                <PortfolioCategory>{formattedCategories}</PortfolioCategory>
                 <PortfolioTitleWrapper>
                     <PortfolioTitle>{props.portfolio.title}</PortfolioTitle>
                 </PortfolioTitleWrapper>
+                <PortfolioStatus>{props.portfolio.portfolioStatus}</PortfolioStatus>
                 <ImagesContainer>
                     <Image className="mb-8" style={{ cursor: "zoom-in" }} onClick={() => setMagnifierActive(!magnifierActive)} src={props.portfolio.images[activeImage].url} />
                     <ImagesPickerContainer>
