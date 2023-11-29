@@ -105,6 +105,32 @@ query GetPortfolioBySlug($slug: String) {
   
 `;
 
+export const GET_PORFOLIO_BY_ID = gql`
+query GetPortfolioById($id: ID) {
+  portfolio(where: {id: $id}) {
+    category
+    cover {
+      id
+      url(
+        transformation: {document: {output: {format: webp}}, image: {resize: {width: 960}}}
+      )
+    }
+    title
+    images {
+      id
+      url(transformation: {document: {output: {format: webp}}})
+    }
+    slug
+    projectUri
+    portfolioStatus
+    details {
+      raw
+    }
+    description
+  }
+}
+
+`;
 export const GET_POSTS_CATEGORIES = gql`
   query GetPostsCategories {
     categories {
