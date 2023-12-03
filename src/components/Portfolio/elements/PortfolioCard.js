@@ -1,5 +1,6 @@
 import tw, { styled } from "twin.macro";
 import propTypes from 'prop-types';
+import Image from "next/image";
 
 const Wrapper = styled.div(({ src }) => [
   tw`
@@ -44,17 +45,15 @@ const CardInfo = styled.a(() => [
 
 export default function PortfolioCard(props) {
   if (props.isSkeleton === true) {
-    return <Wrapper className="animate-pulse" src="/assets/placeholder.jpg">
+    return <div css={tw`flex relative width[315px] height[190px] border-radius[8px] animate-pulse`}><Image width={315} height={190} css={tw`width[315px] height[190px] border-radius[8px] animate-pulse`} src="/assets/placeholder.jpg" />
       <CardInfoWrapper>
         <CardInfo href={"/portfolio"}>{props.title}</CardInfo>
-      </CardInfoWrapper>
-    </Wrapper>
+      </CardInfoWrapper></div>
   } else {
-    return <Wrapper src={props.imgUrl}>
+    return <div css={tw`flex relative width[315px] height[190px] border-radius[8px]`}><Image width={315} height={190} css={tw`width[315px] height[190px] border-radius[8px] object-cover`} objectFit="cover" src={props.imgUrl} placeholder="blur" blurDataURL="/assets/placeholder.jpg" />
       <CardInfoWrapper>
         <CardInfo href={"/portfolio/" + props.slug}>{props.title}</CardInfo>
-      </CardInfoWrapper>
-    </Wrapper>
+      </CardInfoWrapper></div>
   }
 }
 
