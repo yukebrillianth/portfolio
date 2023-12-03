@@ -58,9 +58,10 @@ model Users {
   externalId        String?
   email             String
   first_name        String
-  last_name         String
+  last_name         String?
   username          String
   profile_image_url String
+  deleted           Boolean @default(false)
 
   Comments Comments[]
 

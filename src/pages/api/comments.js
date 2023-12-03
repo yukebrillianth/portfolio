@@ -1,5 +1,5 @@
 import requestIp from 'request-ip'
-import { PrismaClient } from '@prisma/client'
+import { PrismaClient } from '../../../prisma/generated/client'
 const prisma = new PrismaClient()
 
 export default async function handler(req, res) {

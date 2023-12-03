@@ -3184,6 +3184,7 @@ export namespace Prisma {
     last_name: string | null
     username: string | null
     profile_image_url: string | null
+    deleted: boolean | null
     createdAt: Date | null
     updatedAt: Date | null
   }
@@ -3196,6 +3197,7 @@ export namespace Prisma {
     last_name: string | null
     username: string | null
     profile_image_url: string | null
+    deleted: boolean | null
     createdAt: Date | null
     updatedAt: Date | null
   }
@@ -3208,6 +3210,7 @@ export namespace Prisma {
     last_name: number
     username: number
     profile_image_url: number
+    deleted: number
     createdAt: number
     updatedAt: number
     _all: number
@@ -3222,6 +3225,7 @@ export namespace Prisma {
     last_name?: true
     username?: true
     profile_image_url?: true
+    deleted?: true
     createdAt?: true
     updatedAt?: true
   }
@@ -3234,6 +3238,7 @@ export namespace Prisma {
     last_name?: true
     username?: true
     profile_image_url?: true
+    deleted?: true
     createdAt?: true
     updatedAt?: true
   }
@@ -3246,6 +3251,7 @@ export namespace Prisma {
     last_name?: true
     username?: true
     profile_image_url?: true
+    deleted?: true
     createdAt?: true
     updatedAt?: true
     _all?: true
@@ -3328,9 +3334,10 @@ export namespace Prisma {
     externalId: string | null
     email: string
     first_name: string
-    last_name: string
+    last_name: string | null
     username: string
     profile_image_url: string
+    deleted: boolean
     createdAt: Date
     updatedAt: Date
     _count: UsersCountAggregateOutputType | null
@@ -3360,6 +3367,7 @@ export namespace Prisma {
     last_name?: boolean
     username?: boolean
     profile_image_url?: boolean
+    deleted?: boolean
     createdAt?: boolean
     updatedAt?: boolean
     Comments?: boolean | Users$CommentsArgs<ExtArgs>
@@ -3374,6 +3382,7 @@ export namespace Prisma {
     last_name?: boolean
     username?: boolean
     profile_image_url?: boolean
+    deleted?: boolean
     createdAt?: boolean
     updatedAt?: boolean
   }
@@ -3394,9 +3403,10 @@ export namespace Prisma {
       externalId: string | null
       email: string
       first_name: string
-      last_name: string
+      last_name: string | null
       username: string
       profile_image_url: string
+      deleted: boolean
       createdAt: Date
       updatedAt: Date
     }, ExtArgs["result"]["users"]>
@@ -3801,6 +3811,7 @@ export namespace Prisma {
     readonly last_name: FieldRef<"Users", 'String'>
     readonly username: FieldRef<"Users", 'String'>
     readonly profile_image_url: FieldRef<"Users", 'String'>
+    readonly deleted: FieldRef<"Users", 'Boolean'>
     readonly createdAt: FieldRef<"Users", 'DateTime'>
     readonly updatedAt: FieldRef<"Users", 'DateTime'>
   }
@@ -4202,6 +4213,7 @@ export namespace Prisma {
     last_name: 'last_name',
     username: 'username',
     profile_image_url: 'profile_image_url',
+    deleted: 'deleted',
     createdAt: 'createdAt',
     updatedAt: 'updatedAt'
   };
@@ -4255,6 +4267,13 @@ export namespace Prisma {
    * Reference to a field of type 'Int'
    */
   export type IntFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Int'>
+    
+
+
+  /**
+   * Reference to a field of type 'Boolean'
+   */
+  export type BooleanFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Boolean'>
     
 
 
@@ -4432,9 +4451,10 @@ export namespace Prisma {
     externalId?: StringNullableFilter<"Users"> | string | null
     email?: StringFilter<"Users"> | string
     first_name?: StringFilter<"Users"> | string
-    last_name?: StringFilter<"Users"> | string
+    last_name?: StringNullableFilter<"Users"> | string | null
     username?: StringFilter<"Users"> | string
     profile_image_url?: StringFilter<"Users"> | string
+    deleted?: BoolFilter<"Users"> | boolean
     createdAt?: DateTimeFilter<"Users"> | Date | string
     updatedAt?: DateTimeFilter<"Users"> | Date | string
     Comments?: CommentsListRelationFilter
@@ -4445,9 +4465,10 @@ export namespace Prisma {
     externalId?: SortOrderInput | SortOrder
     email?: SortOrder
     first_name?: SortOrder
-    last_name?: SortOrder
+    last_name?: SortOrderInput | SortOrder
     username?: SortOrder
     profile_image_url?: SortOrder
+    deleted?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
     Comments?: CommentsOrderByRelationAggregateInput
@@ -4461,9 +4482,10 @@ export namespace Prisma {
     externalId?: StringNullableFilter<"Users"> | string | null
     email?: StringFilter<"Users"> | string
     first_name?: StringFilter<"Users"> | string
-    last_name?: StringFilter<"Users"> | string
+    last_name?: StringNullableFilter<"Users"> | string | null
     username?: StringFilter<"Users"> | string
     profile_image_url?: StringFilter<"Users"> | string
+    deleted?: BoolFilter<"Users"> | boolean
     createdAt?: DateTimeFilter<"Users"> | Date | string
     updatedAt?: DateTimeFilter<"Users"> | Date | string
     Comments?: CommentsListRelationFilter
@@ -4474,9 +4496,10 @@ export namespace Prisma {
     externalId?: SortOrderInput | SortOrder
     email?: SortOrder
     first_name?: SortOrder
-    last_name?: SortOrder
+    last_name?: SortOrderInput | SortOrder
     username?: SortOrder
     profile_image_url?: SortOrder
+    deleted?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
     _count?: UsersCountOrderByAggregateInput
@@ -4492,9 +4515,10 @@ export namespace Prisma {
     externalId?: StringNullableWithAggregatesFilter<"Users"> | string | null
     email?: StringWithAggregatesFilter<"Users"> | string
     first_name?: StringWithAggregatesFilter<"Users"> | string
-    last_name?: StringWithAggregatesFilter<"Users"> | string
+    last_name?: StringNullableWithAggregatesFilter<"Users"> | string | null
     username?: StringWithAggregatesFilter<"Users"> | string
     profile_image_url?: StringWithAggregatesFilter<"Users"> | string
+    deleted?: BoolWithAggregatesFilter<"Users"> | boolean
     createdAt?: DateTimeWithAggregatesFilter<"Users"> | Date | string
     updatedAt?: DateTimeWithAggregatesFilter<"Users"> | Date | string
   }
@@ -4667,9 +4691,10 @@ export namespace Prisma {
     externalId?: string | null
     email: string
     first_name: string
-    last_name: string
+    last_name?: string | null
     username: string
     profile_image_url: string
+    deleted?: boolean
     createdAt?: Date | string
     updatedAt?: Date | string
     Comments?: CommentsCreateNestedManyWithoutUserInput
@@ -4680,9 +4705,10 @@ export namespace Prisma {
     externalId?: string | null
     email: string
     first_name: string
-    last_name: string
+    last_name?: string | null
     username: string
     profile_image_url: string
+    deleted?: boolean
     createdAt?: Date | string
     updatedAt?: Date | string
     Comments?: CommentsUncheckedCreateNestedManyWithoutUserInput
@@ -4693,9 +4719,10 @@ export namespace Prisma {
     externalId?: NullableStringFieldUpdateOperationsInput | string | null
     email?: StringFieldUpdateOperationsInput | string
     first_name?: StringFieldUpdateOperationsInput | string
-    last_name?: StringFieldUpdateOperationsInput | string
+    last_name?: NullableStringFieldUpdateOperationsInput | string | null
     username?: StringFieldUpdateOperationsInput | string
     profile_image_url?: StringFieldUpdateOperationsInput | string
+    deleted?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     Comments?: CommentsUpdateManyWithoutUserNestedInput
@@ -4706,9 +4733,10 @@ export namespace Prisma {
     externalId?: NullableStringFieldUpdateOperationsInput | string | null
     email?: StringFieldUpdateOperationsInput | string
     first_name?: StringFieldUpdateOperationsInput | string
-    last_name?: StringFieldUpdateOperationsInput | string
+    last_name?: NullableStringFieldUpdateOperationsInput | string | null
     username?: StringFieldUpdateOperationsInput | string
     profile_image_url?: StringFieldUpdateOperationsInput | string
+    deleted?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     Comments?: CommentsUncheckedUpdateManyWithoutUserNestedInput
@@ -4719,9 +4747,10 @@ export namespace Prisma {
     externalId?: string | null
     email: string
     first_name: string
-    last_name: string
+    last_name?: string | null
     username: string
     profile_image_url: string
+    deleted?: boolean
     createdAt?: Date | string
     updatedAt?: Date | string
   }
@@ -4731,9 +4760,10 @@ export namespace Prisma {
     externalId?: NullableStringFieldUpdateOperationsInput | string | null
     email?: StringFieldUpdateOperationsInput | string
     first_name?: StringFieldUpdateOperationsInput | string
-    last_name?: StringFieldUpdateOperationsInput | string
+    last_name?: NullableStringFieldUpdateOperationsInput | string | null
     username?: StringFieldUpdateOperationsInput | string
     profile_image_url?: StringFieldUpdateOperationsInput | string
+    deleted?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -4743,9 +4773,10 @@ export namespace Prisma {
     externalId?: NullableStringFieldUpdateOperationsInput | string | null
     email?: StringFieldUpdateOperationsInput | string
     first_name?: StringFieldUpdateOperationsInput | string
-    last_name?: StringFieldUpdateOperationsInput | string
+    last_name?: NullableStringFieldUpdateOperationsInput | string | null
     username?: StringFieldUpdateOperationsInput | string
     profile_image_url?: StringFieldUpdateOperationsInput | string
+    deleted?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -5000,6 +5031,11 @@ export namespace Prisma {
     not?: NestedStringNullableFilter<$PrismaModel> | string | null
   }
 
+  export type BoolFilter<$PrismaModel = never> = {
+    equals?: boolean | BooleanFieldRefInput<$PrismaModel>
+    not?: NestedBoolFilter<$PrismaModel> | boolean
+  }
+
   export type UsersCountOrderByAggregateInput = {
     id?: SortOrder
     externalId?: SortOrder
@@ -5008,6 +5044,7 @@ export namespace Prisma {
     last_name?: SortOrder
     username?: SortOrder
     profile_image_url?: SortOrder
+    deleted?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
   }
@@ -5020,6 +5057,7 @@ export namespace Prisma {
     last_name?: SortOrder
     username?: SortOrder
     profile_image_url?: SortOrder
+    deleted?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
   }
@@ -5032,6 +5070,7 @@ export namespace Prisma {
     last_name?: SortOrder
     username?: SortOrder
     profile_image_url?: SortOrder
+    deleted?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
   }
@@ -5051,6 +5090,14 @@ export namespace Prisma {
     _count?: NestedIntNullableFilter<$PrismaModel>
     _min?: NestedStringNullableFilter<$PrismaModel>
     _max?: NestedStringNullableFilter<$PrismaModel>
+  }
+
+  export type BoolWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: boolean | BooleanFieldRefInput<$PrismaModel>
+    not?: NestedBoolWithAggregatesFilter<$PrismaModel> | boolean
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedBoolFilter<$PrismaModel>
+    _max?: NestedBoolFilter<$PrismaModel>
   }
 
   export type CommentsCreateNestedManyWithoutBlogPostInput = {
@@ -5225,6 +5272,10 @@ export namespace Prisma {
 
   export type NullableStringFieldUpdateOperationsInput = {
     set?: string | null
+  }
+
+  export type BoolFieldUpdateOperationsInput = {
+    set?: boolean
   }
 
   export type CommentsUpdateManyWithoutUserNestedInput = {
@@ -5418,6 +5469,11 @@ export namespace Prisma {
     not?: NestedStringNullableFilter<$PrismaModel> | string | null
   }
 
+  export type NestedBoolFilter<$PrismaModel = never> = {
+    equals?: boolean | BooleanFieldRefInput<$PrismaModel>
+    not?: NestedBoolFilter<$PrismaModel> | boolean
+  }
+
   export type NestedStringNullableWithAggregatesFilter<$PrismaModel = never> = {
     equals?: string | StringFieldRefInput<$PrismaModel> | null
     in?: string[] | null
@@ -5433,6 +5489,14 @@ export namespace Prisma {
     _count?: NestedIntNullableFilter<$PrismaModel>
     _min?: NestedStringNullableFilter<$PrismaModel>
     _max?: NestedStringNullableFilter<$PrismaModel>
+  }
+
+  export type NestedBoolWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: boolean | BooleanFieldRefInput<$PrismaModel>
+    not?: NestedBoolWithAggregatesFilter<$PrismaModel> | boolean
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedBoolFilter<$PrismaModel>
+    _max?: NestedBoolFilter<$PrismaModel>
   }
 
   export type CommentsCreateWithoutBlogPostInput = {
@@ -5529,9 +5593,10 @@ export namespace Prisma {
     externalId?: string | null
     email: string
     first_name: string
-    last_name: string
+    last_name?: string | null
     username: string
     profile_image_url: string
+    deleted?: boolean
     createdAt?: Date | string
     updatedAt?: Date | string
   }
@@ -5541,9 +5606,10 @@ export namespace Prisma {
     externalId?: string | null
     email: string
     first_name: string
-    last_name: string
+    last_name?: string | null
     username: string
     profile_image_url: string
+    deleted?: boolean
     createdAt?: Date | string
     updatedAt?: Date | string
   }
@@ -5659,9 +5725,10 @@ export namespace Prisma {
     externalId?: NullableStringFieldUpdateOperationsInput | string | null
     email?: StringFieldUpdateOperationsInput | string
     first_name?: StringFieldUpdateOperationsInput | string
-    last_name?: StringFieldUpdateOperationsInput | string
+    last_name?: NullableStringFieldUpdateOperationsInput | string | null
     username?: StringFieldUpdateOperationsInput | string
     profile_image_url?: StringFieldUpdateOperationsInput | string
+    deleted?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -5671,9 +5738,10 @@ export namespace Prisma {
     externalId?: NullableStringFieldUpdateOperationsInput | string | null
     email?: StringFieldUpdateOperationsInput | string
     first_name?: StringFieldUpdateOperationsInput | string
-    last_name?: StringFieldUpdateOperationsInput | string
+    last_name?: NullableStringFieldUpdateOperationsInput | string | null
     username?: StringFieldUpdateOperationsInput | string
     profile_image_url?: StringFieldUpdateOperationsInput | string
+    deleted?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
