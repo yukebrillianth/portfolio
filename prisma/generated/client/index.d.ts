@@ -6521,13 +6521,13 @@ export namespace Prisma {
 
   export type PlansWhereUniqueInput = Prisma.AtLeast<{
     id?: string
+    slug?: string
     AND?: PlansWhereInput | PlansWhereInput[]
     OR?: PlansWhereInput[]
     NOT?: PlansWhereInput | PlansWhereInput[]
     title?: StringFilter<"Plans"> | string
-    slug?: StringNullableFilter<"Plans"> | string | null
     Subscription?: SubscriptionsListRelationFilter
-  }, "id">
+  }, "id" | "slug">
 
   export type PlansOrderByWithAggregationInput = {
     id?: SortOrder
