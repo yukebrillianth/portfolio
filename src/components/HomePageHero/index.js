@@ -1,4 +1,7 @@
 import tw, { styled } from "twin.macro"
+import Image from "next/image";
+import HeroImage from '../../../public/assets/hero.svg'
+import MobileHeroImage from '../../../public/assets/hero-mobile.svg'
 
 const Wrapper = styled.section(() => [
     tw`
@@ -86,8 +89,10 @@ export default function Hero() {
                 app developer.
             </Title>
             <HeroIllustration>
-                <img tw="hidden md:block" src="/assets/hero.svg" alt="hero" />
-                <img tw="block md:hidden" src="/assets/hero-mobile.svg" alt="hero" />
+                <Image tw="hidden md:block" src={HeroImage} alt="yuke brilliant" />
+                <Image tw="block md:hidden" src={MobileHeroImage} alt="yuke brilliant" />
+                {/* <img tw="hidden md:block" src="/assets/hero.svg" alt="hero" /> */}
+                {/* <img tw="block md:hidden" src="/assets/hero-mobile.svg" alt="hero" /> */}
             </HeroIllustration>
             <ShadowEffect />
         </Wrapper>

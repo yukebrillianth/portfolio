@@ -86,7 +86,7 @@ function PostCard(props) {
                 <Link prefetch href={props.postCategorySlug} passHref>
                     <PostCardCategory>{props.postCategory}</PostCardCategory>
                 </Link>
-                <Image className="rounded-lg" width={360} height={203} src={props.postCover} objectFit="cover" placeholder="blur" blurDataURL="/assets/placeholder.jpg" />
+                <Image className="rounded-lg" width={360} height={203} src={props.postCover} objectFit="cover" placeholder="blur" blurDataURL="/assets/placeholder.jpg" alt={props.postTitle} />
             </PostCardImgContainer>
             <PostCardDetailsContainer>
                 <Link prefetch href={props.postSlug} passHref>

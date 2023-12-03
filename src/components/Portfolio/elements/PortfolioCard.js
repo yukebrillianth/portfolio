@@ -50,7 +50,7 @@ export default function PortfolioCard(props) {
         <CardInfo href={"/portfolio"}>{props.title}</CardInfo>
       </CardInfoWrapper></div>
   } else {
-    return <div css={tw`flex relative width[315px] height[190px] border-radius[8px]`}><Image width={315} height={190} css={tw`width[315px] height[190px] border-radius[8px] object-cover`} objectFit="cover" src={props.imgUrl} placeholder="blur" blurDataURL="/assets/placeholder.jpg" />
+    return <div css={tw`flex relative width[315px] height[190px] border-radius[8px]`}><Image width={315} height={190} css={tw`width[315px] height[190px] border-radius[8px] object-cover`} objectFit="cover" src={props.imgUrl} placeholder="blur" blurDataURL="/assets/placeholder.jpg" alt={props.title} />
       <CardInfoWrapper>
         <CardInfo href={"/portfolio/" + props.slug}>{props.title}</CardInfo>
       </CardInfoWrapper></div>
