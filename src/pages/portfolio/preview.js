@@ -64,6 +64,18 @@ export async function getServerSideProps({ query }) {
 
 
 export default function PortfolioPreviewDetail(props) {
+  useEffect(() => {
+    const script = document.createElement('script');
+
+    script.src = "/table.js";
+    script.async = true;
+
+    document.body.appendChild(script);
+
+    return () => {
+      document.body.removeChild(script);
+    }
+  }, []);
   return (
     <>
       <NextSeo
