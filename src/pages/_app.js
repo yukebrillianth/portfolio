@@ -4,6 +4,7 @@ import "../../public/assets/fonts/stylesheet.css";
 import { ApolloProvider } from "@apollo/client";
 import client from "../../apollo-client";
 import { ClerkProvider } from "@clerk/nextjs";
+import { Analytics } from '@vercel/analytics/react';
 
 
 function MyApp({ Component, pageProps }) {
@@ -19,6 +20,7 @@ function MyApp({ Component, pageProps }) {
           <Component {...pageProps} />
         </ClerkProvider>
       </ApolloProvider>
+      <Analytics />
     </>
   );
 }
