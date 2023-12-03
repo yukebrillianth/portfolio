@@ -6,7 +6,6 @@ import client from "../../apollo-client";
 import { ClerkProvider } from "@clerk/nextjs";
 import { Analytics } from '@vercel/analytics/react';
 
-
 function MyApp({ Component, pageProps }) {
   return (
     <>
@@ -16,7 +15,9 @@ function MyApp({ Component, pageProps }) {
         {/* <link href="/assets/fonts/stylesheet.css" rel="stylesheet" /> */}
       </Head>
       <ApolloProvider client={client}>
-        <ClerkProvider {...pageProps}>
+        <ClerkProvider {...pageProps} appearance={{
+          variables: { colorPrimary: '#FF9800', fontFamily: "Inter", },
+        }}>
           <Component {...pageProps} />
         </ClerkProvider>
       </ApolloProvider>
