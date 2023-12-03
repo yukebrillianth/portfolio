@@ -47,7 +47,9 @@ export async function getServerSideProps({ query }) {
       headers: {
         Authorization: process.env.NEXT_PREVIEW_TOKEN
       },
-    }
+
+    },
+    fetchPolicy: 'no-cache',
   })
   if (!data.portfolio) {
     return { notFound: true }
