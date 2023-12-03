@@ -213,6 +213,11 @@
     js-cookie "3.0.1"
     swr "2.2.0"
 
+"@clerk/themes@^1.7.9":
+  version "1.7.9"
+  resolved "https://registry.npmjs.org/@clerk/themes/-/themes-1.7.9.tgz"
+  integrity sha512-9hXxgoPuUSlZ7sH9diJEK1rTWEnk0zGKBYw4Tqaqp0RA1dtB+OHE02DK5pnTypZTnreBJYac3VmxFVTxVV35xg==
+
 "@clerk/types@3.58.0":
   version "3.58.0"
   resolved "https://registry.npmjs.org/@clerk/types/-/types-3.58.0.tgz"

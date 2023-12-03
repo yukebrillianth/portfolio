@@ -14,17 +14,20 @@ datasource db {
 }
 
 model BlogPosts {
-  id         String @id @default(uuid())
+  id         String    @id @default(uuid())
   title      String
   slug       String
   stage      Stage
   coverImage String
-  content    String
+  content    String    @db.LongText
   categoryId String
+  date       DateTime?
+  excerpt    String?
+  deleted    Boolean   @default(false)
 
   createdAt   DateTime   @default(now())
   updatedAt   DateTime   @updatedAt
-  publishedAt DateTime
+  publishedAt DateTime?
   Comments    Comments[]
 }
 
@@ -33,9 +36,29 @@ enum Stage {
   DRAFT
 }
 
+model Plans {
+  id    String  @id @default(uuid())
+  title String
+  slug  String?
+
+  Subscription Subscriptions[]
+}
+
+model Subscriptions {
+  id       String  @id @default(uuid())
+  plan     Plans   @relation(fields: [planId], references: [id])
+  planId   String
+  user     Users   @relation(fields: [usersId], references: [id])
+  usersId  String
+  isActive Boolean @default(false)
+
+  @@index([planId])
+  @@index([usersId])
+}
+
 model Comments {
   id          Int       @id @default(autoincrement())
-  content     String
+  content     String    @db.Text
   blogPost    BlogPosts @relation(fields: [blogPostsId], references: [id])
   blogPostsId String
   user        Users     @relation(fields: [userId], references: [id])
@@ -63,8 +86,8 @@ model Users {
   profile_image_url String
   deleted           Boolean @default(false)
 
-  Comments Comments[]
-
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
+  createdAt    DateTime        @default(now())
+  updatedAt    DateTime        @updatedAt
+  Comments     Comments[]
+  Subscription Subscriptions[]
 }

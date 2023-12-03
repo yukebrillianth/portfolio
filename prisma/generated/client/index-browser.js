@@ -115,9 +115,25 @@ exports.Prisma.BlogPostsScalarFieldEnum = {
   coverImage: 'coverImage',
   content: 'content',
   categoryId: 'categoryId',
+  date: 'date',
+  excerpt: 'excerpt',
+  deleted: 'deleted',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt',
   publishedAt: 'publishedAt'
+};
+
+exports.Prisma.PlansScalarFieldEnum = {
+  id: 'id',
+  title: 'title',
+  slug: 'slug'
+};
+
+exports.Prisma.SubscriptionsScalarFieldEnum = {
+  id: 'id',
+  planId: 'planId',
+  usersId: 'usersId',
+  isActive: 'isActive'
 };
 
 exports.Prisma.CommentsScalarFieldEnum = {
@@ -159,6 +175,8 @@ exports.Stage = exports.$Enums.Stage = {
 
 exports.Prisma.ModelName = {
   BlogPosts: 'BlogPosts',
+  Plans: 'Plans',
+  Subscriptions: 'Subscriptions',
   Comments: 'Comments',
   Users: 'Users'
 };

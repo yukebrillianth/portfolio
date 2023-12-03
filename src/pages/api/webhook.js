@@ -1,4 +1,5 @@
 import { PrismaClient } from "../../../prisma/generated/client";
+import { clerkClient } from "@clerk/nextjs";
 import { Webhook } from "svix";
 
 const prisma = new PrismaClient()
@@ -54,17 +55,32 @@ export default async function handler(req, res) {
     switch (eventType) {
         case "user.created":
             try {
-                console.log(evt)
-                await prisma.users.create({
+                const user = await prisma.users.create({
                     data: {
                         email: email_addresses[0].email_address,
                         externalId: id,
                         first_name,
                         last_name,
                         username,
-                        profile_image_url
+                        profile_image_url,
+                        Subscription: {
+                            create: {
+                                plan: {
+                                    connect: {
+                                        slug: process.env.NEXT_PUBLIC_DEFAULT_PLAN
+                                    }
+                                },
+                                isActive: true
+                            }
+                        }
                     }
                 })
+                await clerkClient.users.updateUserMetadata(id, {
+                    publicMetadata: {
+                        plan: process.env.NEXT_PUBLIC_DEFAULT_PLAN
+                    }
+                })
+
                 return res.status(201).json({ success: true, status: 201, message: "success create a new user!" });
             } catch (err) {
                 console.error("[Webhook]", err)
