@@ -27,7 +27,7 @@ const Title = styled.h2(() => [
     `
 ]);
 
-const LoadMoreBtn = styled.a(() => [
+const LoadMoreBtn = styled.span(() => [
     tw`
         flex
         justify-center

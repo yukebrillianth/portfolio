@@ -70,7 +70,7 @@ const Description = tw.p`
     max-w-[41rem]
 `;
 
-const LoadMoreBtn = styled.a(() => [
+const LoadMoreBtn = styled.span(() => [
     tw`
         flex
         justify-center

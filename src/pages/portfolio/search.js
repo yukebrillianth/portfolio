@@ -8,7 +8,7 @@ export default function SearchPortfolio() {
     return (
         <>
             <Navbar />
-            <Link href={{ pathname: '/portfolio/search', query: { q: 'this way' } }}><a>path</a></Link>
+            <Link href={{ pathname: '/portfolio/search', query: { q: 'this way' } }}>path</Link>
             <h1 className="text-dark mt-4">search</h1>
             <h1 className="text-dark mt-4">{q}</h1>
         </>

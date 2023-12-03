@@ -71,7 +71,7 @@ const ErrorDetailsText = styled.p(() => [
     `
 ]);
 
-const StyledLink = styled.a`
+const StyledLink = styled.span`
     ${tw`
             padding[8px 16px]
             md:padding[12px 24px]

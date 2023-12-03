@@ -61,7 +61,7 @@ const CardWrapper = styled.div(() => [
     `,
 ]);
 
-const LoadMoreBtn = styled.a(() => [
+const LoadMoreBtn = styled.span(() => [
   tw`
       flex
       justify-center

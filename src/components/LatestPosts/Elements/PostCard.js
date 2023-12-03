@@ -23,7 +23,7 @@ const PostCardImgContainer = styled.div(() => [
     `
 ]);
 
-const PostCardCategory = styled.a(() => [
+const PostCardCategory = styled.span(() => [
     tw`
         absolute
         right-0
@@ -71,7 +71,7 @@ const PostCardExcerpt = styled.p(() => [
     `
 ]);
 
-const PostCardCTA = styled.a(() => [
+const PostCardCTA = styled.span(() => [
     tw`
         font-semibold
         text-sm
