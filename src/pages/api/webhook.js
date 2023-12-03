@@ -55,7 +55,7 @@ export default async function handler(req, res) {
     switch (eventType) {
         case "user.created":
             try {
-                const user = await prisma.users.create({
+                await prisma.users.create({
                     data: {
                         email: email_addresses[0].email_address,
                         externalId: id,
@@ -67,7 +67,7 @@ export default async function handler(req, res) {
                             create: {
                                 plan: {
                                     connect: {
-                                        slug: process.env.NEXT_PUBLIC_DEFAULT_PLAN
+                                        id: 'ed1dccc2-001b-49c6-baac-fa99e845526a'
                                     }
                                 },
                                 isActive: true

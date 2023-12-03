@@ -39,7 +39,7 @@ enum Stage {
 model Plans {
   id    String  @id @default(uuid())
   title String
-  slug  String?
+  slug  String? @unique
 
   Subscription Subscriptions[]
 }
