@@ -6,7 +6,7 @@ export const GET_BLOG_POSTS = gql`
         slug
         title
         coverImage {
-            url(transformation: {document: {output: {format: webp}}})
+            url(transformation: {document: {output: {format: webp}}, image: {resize: {width: 720}}})
         }
         date
         excerpt
@@ -24,7 +24,7 @@ query SearchBlogPosts($query: String) {
     slug
     title
     coverImage {
-      url(transformation: {document: {output: {format: webp}}})
+      url(transformation: {document: {output: {format: webp}}, image: {resize: {width: 720}}})
     }
     date
     excerpt
@@ -41,7 +41,7 @@ query SearchBlogPosts($query: String, $category: String) {
     slug
     title
     coverImage {
-      url(transformation: {document: {output: {format: webp}}})
+      url(transformation: {document: {output: {format: webp}}, image: {resize: {width: 720}}})
     }
     date
     excerpt
@@ -67,7 +67,7 @@ export const GET_ALL_PORTFOLIOS = gql`
         slug
         title
         cover {
-            url(transformation: {document: {output: {format: webp}}})
+            url(transformation: {document: {output: {format: webp}}, image: {resize: {width: 720}}})
         }
         }
     }  
@@ -79,7 +79,7 @@ export const GET_PORTFOLIOS_BY_CATEGORY = gql`
         slug
         title
         cover {
-            url(transformation: {document: {output: {format: webp}}})
+            url(transformation: {document: {output: {format: webp}}, image: {resize: {width: 720}}})
         }
         }
     }  
