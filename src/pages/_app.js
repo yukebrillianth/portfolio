@@ -3,6 +3,7 @@ import "tailwindcss/tailwind.css";
 import "../../public/assets/fonts/stylesheet.css";
 import { ApolloProvider } from "@apollo/client";
 import client from "../../apollo-client";
+import { ClerkProvider } from "@clerk/nextjs";
 
 
 function MyApp({ Component, pageProps }) {
@@ -14,7 +15,9 @@ function MyApp({ Component, pageProps }) {
         {/* <link href="/assets/fonts/stylesheet.css" rel="stylesheet" /> */}
       </Head>
       <ApolloProvider client={client}>
-        <Component {...pageProps} />
+        <ClerkProvider {...pageProps}>
+          <Component {...pageProps} />
+        </ClerkProvider>
       </ApolloProvider>
     </>
   );

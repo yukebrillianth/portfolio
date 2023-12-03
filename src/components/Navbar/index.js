@@ -2,6 +2,13 @@ import Image from "next/image";
 import { useRouter } from "next/router";
 import { useState } from "react";
 import tw, { styled } from "twin.macro"
+import {
+    SignedIn,
+    SignedOut,
+    SignInButton,
+    UserButton,
+} from "@clerk/nextjs";
+import Link from 'next/link';
 
 const Wrapper = styled.nav(() => [
     `
@@ -69,7 +76,7 @@ const MainMenuList = styled.ul(() => [
     `
 ]);
 
-const MainMenuLink = styled.a(({ active }) => [
+const MainMenuLink = styled.span(({ active }) => [
     tw`
         block
         py-2
@@ -131,22 +138,52 @@ export default function Navbar() {
                 <MainMenu active={menuOpen}>
                     <MainMenuList>
                         <li>
-                            <MainMenuLink href="/" active={router.pathname === "/"}>HOME</MainMenuLink>
+                            <Link href="/">
+                                <MainMenuLink active={router.pathname === "/"}>HOME</MainMenuLink>
+                            </Link>
                         </li>
                         <li>
-                            <MainMenuLink href="/portfolio" active={router.pathname === "/portfolio" || router.pathname === "/portfolio/[slug]"}>PORTFOLIO</MainMenuLink>
+                            <Link href="/portfolio">
+                                <MainMenuLink active={router.pathname === "/portfolio" || router.pathname === "/portfolio/[slug]"}>PORTFOLIO</MainMenuLink>
+                            </Link>
                         </li>
                         <li>
-                            <MainMenuLink href="/blog">BLOG</MainMenuLink>
+                            <Link href="/blog">
+                                <MainMenuLink active={router.pathname === "/blog" || router.pathname === "/blog/[slug]"}>BLOG</MainMenuLink>
+                            </Link>
                         </li>
                         <li>
-                            <MainMenuLink href="/contact">CONTACT</MainMenuLink>
+                            <Link href="/contact">
+                                <MainMenuLink active={router.pathname === "/contact"}>CONTACT</MainMenuLink>
+                            </Link>
                         </li>
                     </MainMenuList>
                     <MainCallToActionMobile href="mailto:me@yukebrillianth.my.id">Let's Talk</MainCallToActionMobile>
+                    <div className="text-white flex md:hidden justify-center">
+                        <SignedOut>
+                            {/* Signed out users get sign in button */}
+                            <SignInButton mode="modal" tw="w-24 py-4 px-2 w-full" />
+                        </SignedOut>
+                    </div>
                 </MainMenu>
-                <span className="flex flex-row">
+                <span className="flex flex-row items-center">
                     <MainCallToAction href="mailto:me@yukebrillianth.my.id">Let's Talk</MainCallToAction>
+                    <div className="mr-4 text-white md:hidden">
+                        <SignedIn>
+                            {/* Mount the UserButton component */}
+                            <UserButton afterSignOutUrl="/" appearance={{ elements: { userButtonAvatarBox: "md:w-10 md:h-10" } }} />
+                        </SignedIn>
+                    </div>
+                    <div className="ml-4 text-white hidden md:flex">
+                        <SignedIn>
+                            {/* Mount the UserButton component */}
+                            <UserButton afterSignOutUrl="/" appearance={{ elements: { userButtonAvatarBox: "md:w-10 md:h-10" } }} />
+                        </SignedIn>
+                        <SignedOut>
+                            {/* Signed out users get sign in button */}
+                            <SignInButton mode="modal" />
+                        </SignedOut>
+                    </div>
                     <button onClick={() => setMenuOpen(!menuOpen)} type="button" className="inline-flex items-center p-2 ml-1 text-sm text-white rounded-lg md:hidden focus:outline-none focus:ring-2">
                         <span className="sr-only">Open main menu</span>
                         {/* <svg className={menuOpen ? "hidden" : "w-6 h-6"} fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clipRule="evenodd"></path></svg> */}
