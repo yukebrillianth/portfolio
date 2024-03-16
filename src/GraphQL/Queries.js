@@ -43,6 +43,22 @@ export const GET_BLOG_POSTS = gql`
   }
 `;
 
+export const GET_BLOG_SERIES = gql`
+  query GetBlogSeries($first: Int!) {
+    publication(host: "yukebrillianth.hashnode.dev") {
+      title
+      seriesList(first: $first) {
+        edges {
+          node {
+            name
+            slug
+          }
+        }
+      }
+    }
+  }
+`;
+
 export const SEARCH_BLOG_POSTS = gql`
   query SearchBlogPosts($query: String) {
     posts(where: { _search: $query }) {

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useQuery } from "@apollo/client";
 import tw from "twin.macro";
 import { Footer, Navbar, Search } from "../../components";
-import { GET_BLOG_POSTS } from "../../GraphQL/Queries";
+import { GET_BLOG_POSTS, GET_BLOG_SERIES } from "../../GraphQL/Queries";
 import PostCard from "../../components/LatestPosts/Elements/PostCard";
 import Link from "next/link";
 import styled from "styled-components";
@@ -43,10 +43,11 @@ const Wrapper = tw.div`
     flex
     flex-col
     items-center
-    justify-between
+    justify-between 
     xl:justify-center
     padding[64px 28px]
-    xl:padding[128px]
+    xl:px[128px]
+    xl:pt[128px 100px]
     w-full
     `;
 
@@ -113,11 +114,38 @@ const ShadowEffect = styled.span(() => [
     `,
 ]);
 
+const SeriesWrapper = tw.div`
+    pt-8
+    flex
+`;
+
+const SeriesLink = styled(Link)`
+  ${tw`
+        px-6
+        py-3
+        text-white
+        // bg-white
+        // bg-opacity-[8%]
+        rounded-full
+        backdrop-blur-[30px]
+        border 
+        border-transparent 
+        shadow-[75px_-24px_128px_rgba(0,0,0,0.6)]
+        background[linear-gradient(#101010, #101010) padding-box, linear-gradient(48deg, hsla(0, 0%, 100%, .12), hsla(0, 0%, 100%, .2)) border-box]
+        `}
+`;
+
 export default function Blog() {
   const [posts, setPosts] = useState([]);
+  const [series, setSeries] = useState([]);
 
   const { data } = useQuery(GET_BLOG_POSTS, {
     variables: { first: 3 },
+    context: { clientName: "blog" },
+  });
+
+  const { data: seriesData } = useQuery(GET_BLOG_SERIES, {
+    variables: { first: 10 },
     context: { clientName: "blog" },
   });
 
@@ -135,7 +163,11 @@ export default function Blog() {
     if (data) {
       setPosts(data.publication.posts.edges);
     }
-  }, [data]);
+
+    if (seriesData) {
+      setSeries(seriesData.publication.seriesList.edges);
+    }
+  }, [data, seriesData]);
   return (
     <>
       <Navbar />
@@ -151,6 +183,13 @@ export default function Blog() {
             placeholder="Search blog post...."
             action="/blog/search"
           />
+          <SeriesWrapper>
+            {series.map((serie) => (
+              <SeriesLink href={"/blog/series/" + serie.node.slug}>
+                {serie.node.name}
+              </SeriesLink>
+            ))}
+          </SeriesWrapper>
           <ShadowEffect />
         </Wrapper>
       </section>
