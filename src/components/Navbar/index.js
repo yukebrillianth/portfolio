@@ -1,21 +1,16 @@
 import Image from "next/image";
 import { useRouter } from "next/router";
 import { useState } from "react";
-import tw, { styled } from "twin.macro"
-import {
-    SignedIn,
-    SignedOut,
-    SignInButton,
-    UserButton,
-} from "@clerk/nextjs";
-import Link from 'next/link';
+import tw, { styled } from "twin.macro";
+import { SignedIn, SignedOut, SignInButton, UserButton } from "@clerk/nextjs";
+import Link from "next/link";
 
 const Wrapper = styled.nav(() => [
-    `
+  `
       background-image: url(/assets/backgrounds/grid-dark.svg);
       background-position: 100%;
     `,
-    tw`
+  tw`
         bg-dark
         py-[28px]
         md:py-[50px]
@@ -25,29 +20,29 @@ const Wrapper = styled.nav(() => [
         md:background-size[300%]
         lg:background-size[200%]
         xl:background-size[cover]
-    `
+    `,
 ]);
 
 const Container = styled.div(() => [
-    tw`
+  tw`
         container
         flex
         flex-wrap
         mx-auto
         justify-between
         items-center
-    `
+    `,
 ]);
 
 const LogoWrapper = styled.a(() => [
-    tw`
+  tw`
         flex
-    `
+    `,
 ]);
 
 const MainMenu = styled.div(({ active }) => [
-    active ? '' : tw`hidden`,
-    tw`
+  active ? "" : tw`hidden`,
+  tw`
         justify-between
         items-center
         w-full
@@ -56,11 +51,11 @@ const MainMenu = styled.div(({ active }) => [
         md:order-none
         order-1
         z-50
-    `
+    `,
 ]);
 
 const MainMenuList = styled.ul(() => [
-    tw`
+  tw`
         flex 
         flex-col
         gap-2.5
@@ -73,22 +68,22 @@ const MainMenuList = styled.ul(() => [
         md:mb-0
         md:text-sm
         font-medium
-    `
+    `,
 ]);
 
 const MainMenuLink = styled.span(({ active }) => [
-    tw`
+  tw`
         block
         py-2
         pr-4
         pl-3
         rounded
     `,
-    active ? tw`text-primary` : tw`text-white`
+  active ? tw`text-primary` : tw`text-white`,
 ]);
 
 const MainCallToAction = styled.a(() => [
-    tw`
+  tw`
         hidden
         md:flex
         justify-center
@@ -103,11 +98,11 @@ const MainCallToAction = styled.a(() => [
         font-size[14px]
         margin-right[4px]
     `,
-    `box-shadow: 0px 4px 20px rgba(255, 152, 0, 0.3);`
+  `box-shadow: 0px 4px 20px rgba(255, 152, 0, 0.3);`,
 ]);
 
 const MainCallToActionMobile = styled.a(() => [
-    tw`
+  tw`
         flex
         md:hidden
         justify-center
@@ -122,76 +117,160 @@ const MainCallToActionMobile = styled.a(() => [
         margin-right[4px]
         mt-[18px]
     `,
-    `box-shadow: 0px 4px 20px rgba(255, 152, 0, 0.3);`
+  `box-shadow: 0px 4px 20px rgba(255, 152, 0, 0.3);`,
 ]);
 
 export default function Navbar() {
-    const [menuOpen, setMenuOpen] = useState(false)
+  const [menuOpen, setMenuOpen] = useState(false);
 
-    const router = useRouter();
-    return (
-        <Wrapper>
-            <Container>
-                <LogoWrapper href="/">
-                    <Image src="/assets/logo.svg" alt="cv Portofolio yuke brilliant" width={90} height={48} />
-                </LogoWrapper>
-                <MainMenu active={menuOpen}>
-                    <MainMenuList>
-                        <li>
-                            <Link href="/">
-                                <MainMenuLink active={router.pathname === "/"}>HOME</MainMenuLink>
-                            </Link>
-                        </li>
-                        <li>
-                            <Link href="/portfolio">
-                                <MainMenuLink active={router.pathname === "/portfolio" || router.pathname === "/portfolio/[slug]"}>PORTFOLIO</MainMenuLink>
-                            </Link>
-                        </li>
-                        <li>
-                            <Link href="/blog">
-                                <MainMenuLink active={router.pathname === "/blog" || router.pathname === "/blog/[slug]"}>BLOG</MainMenuLink>
-                            </Link>
-                        </li>
-                        <li>
-                            <Link href="/contact">
-                                <MainMenuLink active={router.pathname === "/contact"}>CONTACT</MainMenuLink>
-                            </Link>
-                        </li>
-                    </MainMenuList>
-                    <MainCallToActionMobile href="mailto:me@yukebrillianth.my.id">Let's Talk</MainCallToActionMobile>
-                    <div className="text-white flex md:hidden justify-center">
-                        <SignedOut>
-                            {/* Signed out users get sign in button */}
-                            <SignInButton mode="modal" tw="w-24 py-4 px-2 w-full" />
-                        </SignedOut>
-                    </div>
-                </MainMenu>
-                <span className="flex flex-row items-center">
-                    <MainCallToAction href="mailto:me@yukebrillianth.my.id">Let's Talk</MainCallToAction>
-                    <div className="mr-4 text-white md:hidden">
-                        <SignedIn>
-                            {/* Mount the UserButton component */}
-                            <UserButton afterSignOutUrl="/" appearance={{ elements: { userButtonAvatarBox: "md:w-10 md:h-10" } }} />
-                        </SignedIn>
-                    </div>
-                    <div className="ml-4 text-white hidden md:flex">
-                        <SignedIn>
-                            {/* Mount the UserButton component */}
-                            <UserButton afterSignOutUrl="/" appearance={{ elements: { userButtonAvatarBox: "md:w-10 md:h-10" } }} />
-                        </SignedIn>
-                        <SignedOut>
-                            {/* Signed out users get sign in button */}
-                            <SignInButton mode="modal" />
-                        </SignedOut>
-                    </div>
-                    <button onClick={() => setMenuOpen(!menuOpen)} type="button" className="inline-flex items-center p-2 ml-1 text-sm text-white rounded-lg md:hidden focus:outline-none focus:ring-2">
-                        <span className="sr-only">Open main menu</span>
-                        {/* <svg className={menuOpen ? "hidden" : "w-6 h-6"} fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clipRule="evenodd"></path></svg> */}
-                        <svg className={menuOpen ? "hidden" : "stroke-current text-current"} width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M31 16H13" strokeWidth="2" strokeMiterlimit="10" strokeLinecap="round" strokeLinejoin="round"></path><path d="M31 26.6001H1" strokeWidth="2" strokeMiterlimit="10" strokeLinecap="round" strokeLinejoin="round"></path><path d="M31 5.3999H1" strokeWidth="2" strokeMiterlimit="10" strokeLinecap="round" strokeLinejoin="round"></path></svg>
-                        <svg className={menuOpen ? "w-6 h-6" : "hidden"} fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" > <path fillRule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clipRule="evenodd"></path></svg >
-                    </button >
-                </span>
-            </Container >
-        </Wrapper >
-    )
+  const router = useRouter();
+  return (
+    <Wrapper>
+      <Container>
+        <LogoWrapper href="/">
+          <Image
+            src="/assets/logo.svg"
+            alt="cv Portofolio yuke brilliant"
+            width={90}
+            height={48}
+          />
+        </LogoWrapper>
+        <MainMenu active={menuOpen}>
+          <MainMenuList>
+            <li>
+              <Link href="/">
+                <MainMenuLink active={router.pathname === "/"}>
+                  HOME
+                </MainMenuLink>
+              </Link>
+            </li>
+            <li>
+              <Link href="/portfolio">
+                <MainMenuLink
+                  active={
+                    router.pathname === "/portfolio" ||
+                    router.pathname === "/portfolio/[slug]" ||
+                    router.pathname === "/portfolio/search"
+                  }
+                >
+                  PORTFOLIO
+                </MainMenuLink>
+              </Link>
+            </li>
+            <li>
+              <Link href="/blog">
+                <MainMenuLink
+                  active={
+                    router.pathname === "/blog" ||
+                    router.pathname === "/blog/[slug]" ||
+                    router.pathname === "/blog/search"
+                  }
+                >
+                  BLOG
+                </MainMenuLink>
+              </Link>
+            </li>
+            <li>
+              <Link href="/contact">
+                <MainMenuLink active={router.pathname === "/contact"}>
+                  CONTACT
+                </MainMenuLink>
+              </Link>
+            </li>
+          </MainMenuList>
+          <MainCallToActionMobile href="mailto:me@yukebrillianth.my.id">
+            Let's Talk
+          </MainCallToActionMobile>
+          <div className="text-white flex md:hidden justify-center">
+            <SignedOut>
+              {/* Signed out users get sign in button */}
+              <SignInButton mode="modal" tw="w-24 py-4 px-2 w-full" />
+            </SignedOut>
+          </div>
+        </MainMenu>
+        <span className="flex flex-row items-center">
+          <MainCallToAction href="mailto:me@yukebrillianth.my.id">
+            Let's Talk
+          </MainCallToAction>
+          <div className="mr-4 text-white md:hidden">
+            <SignedIn>
+              {/* Mount the UserButton component */}
+              <UserButton
+                afterSignOutUrl="/"
+                appearance={{
+                  elements: { userButtonAvatarBox: "md:w-10 md:h-10" },
+                }}
+              />
+            </SignedIn>
+          </div>
+          <div className="ml-4 text-white hidden md:flex">
+            <SignedIn>
+              {/* Mount the UserButton component */}
+              <UserButton
+                afterSignOutUrl="/"
+                appearance={{
+                  elements: { userButtonAvatarBox: "md:w-10 md:h-10" },
+                }}
+              />
+            </SignedIn>
+            <SignedOut>
+              {/* Signed out users get sign in button */}
+              <SignInButton mode="modal" />
+            </SignedOut>
+          </div>
+          <button
+            onClick={() => setMenuOpen(!menuOpen)}
+            type="button"
+            className="inline-flex items-center p-2 ml-1 text-sm text-white rounded-lg md:hidden focus:outline-none focus:ring-2"
+          >
+            <span className="sr-only">Open main menu</span>
+            {/* <svg className={menuOpen ? "hidden" : "w-6 h-6"} fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clipRule="evenodd"></path></svg> */}
+            <svg
+              className={menuOpen ? "hidden" : "stroke-current text-current"}
+              width="32"
+              height="32"
+              viewBox="0 0 32 32"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M31 16H13"
+                strokeWidth="2"
+                strokeMiterlimit="10"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              ></path>
+              <path
+                d="M31 26.6001H1"
+                strokeWidth="2"
+                strokeMiterlimit="10"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              ></path>
+              <path
+                d="M31 5.3999H1"
+                strokeWidth="2"
+                strokeMiterlimit="10"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              ></path>
+            </svg>
+            <svg
+              className={menuOpen ? "w-6 h-6" : "hidden"}
+              fill="currentColor"
+              viewBox="0 0 20 20"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              {" "}
+              <path
+                fillRule="evenodd"
+                d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+                clipRule="evenodd"
+              ></path>
+            </svg>
+          </button>
+        </span>
+      </Container>
+    </Wrapper>
+  );
 }
