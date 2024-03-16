@@ -19,7 +19,7 @@ import { gql } from "@apollo/client";
 // `;
 
 export const GET_BLOG_POSTS = gql`
-  query GetBlogPosts($first: Int) {
+  query GetBlogPosts($first: Int!) {
     publication(host: "yukebrillianth.hashnode.dev") {
       title
       posts(first: $first) {
