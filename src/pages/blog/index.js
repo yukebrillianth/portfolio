@@ -133,7 +133,7 @@ export default function Blog() {
 
   useEffect(() => {
     if (data) {
-      setPosts(data.posts);
+      setPosts(data.publication.posts.edges);
     }
   }, [data]);
   return (
@@ -158,14 +158,14 @@ export default function Blog() {
         <Wrapper>
           {posts.map((post) => (
             <PostCard
-              key={post.slug}
-              postTitle={post.title}
-              postDate={formatDate(new Date(post.date))}
-              postExcerpt={post.excerpt}
-              postSlug={"blog/" + post.slug}
-              postCategory={post.category.title}
-              postCategorySlug={"category/" + post.category.slug}
-              postCover={post.coverImage.url}
+              key={post.node.slug}
+              postTitle={post.node.title}
+              postDate={formatDate(new Date(post.node.date))}
+              postExcerpt={post.node.excerpt}
+              postSlug={"blog/" + post.node.slug}
+              postCategory={post.node.category.title}
+              postCategorySlug={"category/" + post.node.category.slug}
+              postCover={post.node.coverImage.url}
             />
           ))}
 
