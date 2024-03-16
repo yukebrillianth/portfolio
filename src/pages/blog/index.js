@@ -160,11 +160,11 @@ export default function Blog() {
             <PostCard
               key={post.node.slug}
               postTitle={post.node.title}
-              postDate={formatDate(new Date(post.node.date))}
-              postExcerpt={post.node.excerpt}
+              postDate={formatDate(new Date(post.node.publishedAt))}
+              postExcerpt={post.node.brief}
               postSlug={"blog/" + post.node.slug}
-              postCategory={post.node.category.title}
-              postCategorySlug={"category/" + post.node.category.slug}
+              postCategory={post.node.series.name}
+              postCategorySlug={"category/" + post.node.series.slug}
               postCover={post.node.coverImage.url}
             />
           ))}

@@ -32,7 +32,7 @@ export const GET_BLOG_POSTS = gql`
             }
             publishedAt
             brief
-            tags {
+            series {
               name
               slug
             }
