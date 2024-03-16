@@ -6,7 +6,7 @@ module.exports = {
     return [
       {
         source: "/blog",
-        destination: "hhttps://hashnode-starter-kit-henna.vercel.app/blog",
+        destination: "https://hashnode-starter-kit-henna.vercel.app/blog",
       },
       {
         source: "/blog/:path*",
