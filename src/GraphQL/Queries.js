@@ -59,28 +59,57 @@ export const GET_BLOG_SERIES = gql`
   }
 `;
 
+// export const SEARCH_BLOG_POSTS = gql`
+//   query SearchBlogPosts($query: String) {
+//     posts(where: { _search: $query }) {
+//       slug
+//       title
+//       coverImage {
+//         url(
+//           transformation: {
+//             document: { output: { format: webp } }
+//             image: { resize: { width: 720 } }
+//           }
+//         )
+//       }
+//       date
+//       excerpt
+//       category {
+//         slug
+//         title
+//       }
+//     }
+//   }
+// `;
+
 export const SEARCH_BLOG_POSTS = gql`
-  query SearchBlogPosts($query: String) {
-    posts(where: { _search: $query }) {
-      slug
-      title
-      coverImage {
-        url(
-          transformation: {
-            document: { output: { format: webp } }
-            image: { resize: { width: 720 } }
+  query SearchBlogPost($first: Int!, $query: String!) {
+    searchPostsOfPublication(
+      first: $first
+      filter: { query: $query, publicationId: "65f5c6ace053919df65e40ce" }
+    ) {
+      edges {
+        node {
+          title
+          slug
+          coverImage {
+            url
           }
-        )
+          publishedAt
+          brief
+          series {
+            name
+            slug
+          }
+        }
       }
-      date
-      excerpt
-      category {
-        slug
-        title
+      pageInfo {
+        hasNextPage
       }
     }
   }
 `;
+
 export const SEARCH_BLOG_POSTS_WITH_CATEGORY = gql`
   query SearchBlogPosts($query: String, $category: String) {
     posts(
