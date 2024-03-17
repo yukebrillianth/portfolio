@@ -1,12 +1,12 @@
 import { useQuery } from "@apollo/client";
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import tw, { styled } from "twin.macro"
+import tw, { styled } from "twin.macro";
 import { GET_BLOG_POSTS } from "../../GraphQL/Queries";
 import PostCard from "./Elements/PostCard";
 
 const Wrapper = styled.section(() => [
-    tw`
+  tw`
         relative
         flex
         flex-col
@@ -14,21 +14,21 @@ const Wrapper = styled.section(() => [
         padding[64px 28px]
         md:padding[128px 170px]
         text-dark
-    `
+    `,
 ]);
 
 const Title = styled.h2(() => [
-    tw`
+  tw`
         font-semibold
         font-size[3.375rem]
         line-height[3.687rem]
         mt-0
         mb-[92px]
-    `
+    `,
 ]);
 
 const LoadMoreBtn = styled.span(() => [
-    tw`
+  tw`
         flex
         justify-center
         items-center
@@ -42,46 +42,53 @@ const LoadMoreBtn = styled.span(() => [
         font-size[14px]
         margin-right[4px]
     `,
-    `box-shadow: 0px 4px 20px rgba(255, 152, 0, 0.3);`
+  `box-shadow: 0px 4px 20px rgba(255, 152, 0, 0.3);`,
 ]);
 
 export default function LatestPosts() {
-    const [posts, setPosts] = useState([]);
+  const [posts, setPosts] = useState([]);
 
-    const { data } = useQuery(GET_BLOG_POSTS, {
-        variables: { first: 3 }
-    })
+  const { data } = useQuery(GET_BLOG_POSTS, {
+    variables: { first: 3 },
+    context: {
+      clientName: "blog",
+    },
+  });
 
-    function formatDate(date) {
-        return date.getDate() + ' ' + date.toLocaleString('en-us', { month: "short" }) + ' ' + date.getFullYear();
-    }
-
-    useEffect(() => {
-        if (data) {
-            setPosts(data.posts)
-        }
-    }, [data])
-
-
+  function formatDate(date) {
     return (
-        <Wrapper>
-            <Title>Latest Posts.</Title>
-            {posts.map((post) => (
-                <PostCard
-                    postTitle={post.title}
-                    postDate={
-                        formatDate(new Date(post.date))
-                    }
-                    postExcerpt={post.excerpt}
-                    postSlug={"blog/" + post.slug}
-                    postCategory={post.category.title}
-                    postCategorySlug={"category/" + post.category.slug}
-                    postCover={post.coverImage.url}
-                />
-            ))}
-            <Link prefetch href="/blog" passHref>
-                <LoadMoreBtn>Show More</LoadMoreBtn>
-            </Link>
-        </Wrapper>
-    )
+      date.getDate() +
+      " " +
+      date.toLocaleString("en-us", { month: "short" }) +
+      " " +
+      date.getFullYear()
+    );
+  }
+
+  useEffect(() => {
+    if (data) {
+      setPosts(data.publication.posts.edges);
+    }
+  }, [data]);
+
+  return (
+    <Wrapper>
+      <Title>Latest Posts.</Title>
+      {posts.map((post) => (
+        <PostCard
+          key={post.node.slug}
+          postTitle={post.node.title}
+          postDate={formatDate(new Date(post.node.publishedAt))}
+          postExcerpt={post.node.brief}
+          postSlug={"blog/" + post.node.slug}
+          postCategory={post.node.series.name}
+          postCategorySlug={"category/" + post.node.series.slug}
+          postCover={post.node.coverImage.url}
+        />
+      ))}
+      <Link prefetch href="/blog" passHref>
+        <LoadMoreBtn>Show More</LoadMoreBtn>
+      </Link>
+    </Wrapper>
+  );
 }
