@@ -1,5 +1,5 @@
 module.exports = {
   images: {
-    domains: ["media.graphassets.com", "cdn.hashnode.com"],
+    domains: ["media.graphassets.com", "cdn.hashnode.com", "ap-southeast-2.graphassets.com"],
   },
 };
